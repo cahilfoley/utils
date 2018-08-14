@@ -14,11 +14,11 @@ const clean = async () => {
   if (await fs.exists(manifestPath)) {
     const generatedDirs = await fs.readJSON(manifestPath)
     const operations = generatedDirs.map(dir => {
-      const dirPath = path.join(process.cwd(), dir)
-      console.log('Removing generated directory:', dirPath)
-      return remove(dirPath)
+      const itemPath = path.join(process.cwd(), dir)
+      console.log('Removing generated item:', itemPath)
+      return remove(itemPath)
     })
-    operations.push(remove(manifestPath))
+    // operations.push(remove(manifestPath))
     return await Promise.all(operations)
   }
 }

@@ -2,57 +2,81 @@ import babel from 'rollup-plugin-babel'
 import fs from 'fs-extra'
 import path from 'path'
 import resolve from 'rollup-plugin-node-resolve'
-import rimraf from 'rimraf'
 
 // ES module build defaults
 const defaults = {
   output: {
-    format: 'es',
-    name: '@cahilfoley/utils'
+    format: 'es'
   },
   plugins: [
     resolve(),
     babel({
-      exclude: 'node_modules/**' // only transpile our source code
+      exclude: 'node_modules/**', // only transpile our source code
+      presets: [['@babel/env', { modules: false }]],
+      plugins: [
+        [
+          'module-resolver',
+          {
+            root: 'src'
+          }
+        ],
+        [
+          '@babel/proposal-class-properties',
+          {
+            spec: true
+          }
+        ],
+        '@babel/proposal-object-rest-spread'
+      ]
     })
   ],
-  external: ['lodash'],
   experimentalCodeSplitting: true
 }
 
 /**
  * Generate rollup configuration objects for building ES modules
  *
- * @param {string} folder The name of the folder
+ * @param {string} item The name of the item
  * @param {string} sourceDir The path to the directory containing the module directory
+ * @param {string} name The name to assign to the ES module
  * @return {{output: Object, input: string[], plugins: *[], experimentalCodeSplitting: boolean}} The new config
  */
-const generateModuleConfig = (folder, sourceDir) => {
-  // Remove previous build
-  rimraf.sync(path.join(process.cwd(), folder))
+const generateModuleConfig = (item, sourceDir, name) => {
+  // Get some info about the source file
+  const itemPath = path.join(sourceDir, item)
+  const stats = fs.statSync(itemPath)
+  let dir = '.'
+  let input
 
-  // Get a list of scripts to be included
-  const scripts = fs
-    .readdirSync(path.join(sourceDir, folder))
-    .filter(
-      // Filter out tests, type defs and index files
-      file =>
-        !(
-          file.endsWith('.test.js') ||
-          file.endsWith('.type.js') ||
-          file === 'index.js'
-        )
-    )
-    .map(file => `src/${folder}/${file}`)
+  // If it's a directory, read all of the files inside of it
+  if (stats.isDirectory()) {
+    dir = `./${item}`
+    input = fs
+      .readdirSync(path.join(sourceDir, item))
+      .filter(
+        // Filter out tests and type defs
+        file =>
+          !(
+            file.endsWith('.test.js') ||
+            file.endsWith('.type.js') ||
+            file === 'babel.config.js'
+          )
+      )
+      .map(file => `src/${item}/${file}`)
+  } else {
+    // Not a directory, just use the item
+    input = `src/${item}`
+  }
 
   // Return configuration for this module
   return {
     ...defaults,
     output: {
       ...defaults.output,
-      dir: folder
+      dir,
+      name
     },
-    input: scripts
+    input
   }
 }
 

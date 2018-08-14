@@ -1,8 +1,5 @@
-/**
- * All prepositions
- * @type {string[]}
- */
-export const all = [
+/** All prepositions */
+export const all: string[] = [
   'about',
   'above',
   'across',
@@ -59,10 +56,7 @@ export const all = [
   'versus'
 ]
 
-/**
- * Prepositions shorter than 5 characters
- * @type {string[]}
- */
-export const short = all.filter(word => word.length < 5)
+/** Prepositions shorter than 5 characters */
+export const short: string[] = all.filter(word => word.length < 5)
 
 export default all

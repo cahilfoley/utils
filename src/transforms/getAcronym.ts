@@ -3,22 +3,24 @@ import {
   conjunctions,
   shortPrepositions,
   others
-} from 'internal/wordLists'
+} from '../internal/wordLists'
 
 // Words that are filtered out first
-const except = [...articles, ...conjunctions, ...shortPrepositions, ...others]
+const except: string[] = [
+  ...articles,
+  ...conjunctions,
+  ...shortPrepositions,
+  ...others
+]
 
 /**
  * Condense a provided string into a 2 or 3 letter acronym using the following rules
  * - If there is only a single word return the first 3 letters
  * - If there are more than 3 words filter out articles, conjunctions and short prepositions
- *
- * @param {string} title The title to be condensed
- * @return {string} The generated acronym
  */
-const getAcronym = title => {
+const getAcronym = (title: string): string => {
   // Split the words on delimiters and filter out any empties
-  let words = title
+  let words: string[] = title
     .split(/ |\.|_|,|-/g)
     .map(word => word.trim())
     .filter(word => word.length)

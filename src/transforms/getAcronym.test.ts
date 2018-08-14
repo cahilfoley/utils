@@ -53,4 +53,8 @@ describe('getAcronym', () => {
       batch([['The as fish or yet and', 'TAF'], ['Donkey is out', 'DIO']])
     })
   })
+
+  test('If no words are provided then return NA', () => {
+    batch([['', 'NA']])
+  })
 })

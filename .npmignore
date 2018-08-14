@@ -18,6 +18,7 @@
 /src
 
 # dev env
+.babelrc
 .gitignore
 .eslintrc.yml
 .prettierrc.yml

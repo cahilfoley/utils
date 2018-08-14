@@ -5,9 +5,9 @@ import curryRight from 'lodash/curryRight'
 const outPattern = /# out((?:.|\s)+)# endout/g
 
 // Tagged template to generate
-const output = (_, folders) => `\
+const output = (_, entries) => `\
 # out
-${folders.map(name => `/${name}`).join('\n')}
+${entries.map(name => `/${name}`).join('\n')}
 # endout`
 
 /**
@@ -30,11 +30,11 @@ const updateIgnoreBlock = (content, outputBlock) => {
 /**
  * Updates or adds a generated block in the .gitignore file that ignores the given folder names
  *
- * @param {string[]} foldersToIgnore Array of folders to add to the .gitignore file
+ * @param {string[]} entriesToIgnore Array of files or folders to add to the .gitignore file
  * @return {void}
  */
-const updateIgnoreFiles = foldersToIgnore => {
-  const update = curryRight(updateIgnoreBlock)(output`${foldersToIgnore}`)
+const updateIgnoreFiles = entriesToIgnore => {
+  const update = curryRight(updateIgnoreBlock)(output`${entriesToIgnore}`)
   fs.readFile('.gitignore', 'utf8')
     .then(content => update(content))
     .then(newContent => fs.writeFile('.gitignore', newContent))

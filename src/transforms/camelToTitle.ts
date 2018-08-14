@@ -3,21 +3,21 @@ import {
   conjunctions,
   shortPrepositions,
   others
-} from 'internal/wordLists'
+} from '../internal/wordLists'
 
 // Lists of words that shouldn't be capitalized
-const except = [...articles, ...conjunctions, ...shortPrepositions, ...others]
+const except: string[] = [
+  ...articles,
+  ...conjunctions,
+  ...shortPrepositions,
+  ...others
+]
 
 // Regex pattern to split the camel case section into it's parts
-const splitPattern = /[a-z]+|[0-9]+|(?:[A-Z][a-z]+)|([A-Z]+(?=(?:[A-Z][a-z])|[^A-Za-z]|[$\d\n]|\b))/g
+const splitPattern: RegExp = /[a-z]+|[0-9]+|(?:[A-Z][a-z]+)|([A-Z]+(?=(?:[A-Z][a-z])|[^A-Za-z]|[$\d\n]|\b))/g
 
-/**
- * Capitalize the first letter of a string
- *
- * @param {string} input The string to capitalize
- * @return {string} The transformed string
- */
-const capitalize = input => {
+/** Capitalize the first letter of a string */
+const capitalize = (input: string): string => {
   const [first, ...rest] = input
   return [first.toUpperCase(), ...rest].join('')
 }
@@ -38,17 +38,14 @@ const capitalize = input => {
  * When one of the above conditions is not met then the word is assumed to be some other important word
  * and it is capitalized
  *
- * @param {string} string The camel-case string to transform
- * @return {string} The title case string
- *
  * @example camelToTitle('iLoveCamels') // => 'I Love Camels'
  */
-const camelToTitle = string => {
+const camelToTitle = (string: string): string => {
   // Split the string into the separate parts
-  const parts = (string + ' ').match(splitPattern)
+  const parts: string[] = (string + ' ').match(splitPattern)
 
   // Transform each part of the string
-  const newParts = parts.map((part, index) => {
+  const newParts: string[] = parts.map((part, index) => {
     // Always capitalize the first and last words
     if (index === 0 || index === parts.length - 1) return capitalize(part)
     return except.includes(part.toLowerCase())
