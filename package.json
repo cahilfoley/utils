@@ -5,8 +5,9 @@
   "main": "dist/utils.js",
   "module": "./src/",
   "scripts": {
-    "build": "rollup -c",
-    "clean": "babel-node internal/clean.js",
+    "build": "tsc",
+    "bundle": "rollup -c",
+    "clean": "node .internal/clean.js",
     "prepublishOnly": "npm run clean && npm run test && npm run build",
     "postpublish": "npm run clean",
     "test": "jest"

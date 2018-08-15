@@ -1,3 +1,6 @@
-export { default as camelToTitle } from './camelToTitle'
-export { default as getAcronym } from './getAcronym'
-export { default as normalizeUrl } from './normalizeUrl'
+import camelToTitle from './camelToTitle'
+import getAcronym from './getAcronym'
+import normalizeUrl from './normalizeUrl'
+
+export { camelToTitle, getAcronym, normalizeUrl }
+export default { camelToTitle, getAcronym, normalizeUrl }

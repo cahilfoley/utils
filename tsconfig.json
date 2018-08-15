@@ -1,21 +1,19 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es6",
-    // "noImplicitAny": true,
-    "moduleResolution": "node",
+    "module": "system",
+    "target": "esnext",
+    "declaration": true,
     "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "node_modules/*",
-        "src/types/*"
-      ]
-    }
+    "outDir": ".",
+    "typeRoots": [
+      "./src/**/*"
+    ]
   },
   "include": [
     "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
   ]
 }

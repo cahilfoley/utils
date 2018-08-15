@@ -1,2 +1,6 @@
-export { default as batchTest } from './batchTest'
-export { default as runTest } from './runTest'
+import batchTest from './batchTest'
+import buildCaseArray from './buildCaseArray'
+import runTest from './runTest'
+
+export { batchTest, buildCaseArray, runTest }
+export default { batchTest, buildCaseArray, runTest }

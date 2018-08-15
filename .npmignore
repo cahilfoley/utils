@@ -15,7 +15,11 @@
 .env.production.local
 
 # source code
-/src
+/internal/*.ts
+/tests/*.ts
+/transforms/*.ts
+/validation/*.ts
+index.ts
 
 # dev env
 .babelrc
