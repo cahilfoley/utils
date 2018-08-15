@@ -8,6 +8,7 @@
 
 # production, don't modify the below comments, they are used in the build file to ignore generated folders
 .out.json
+/dist
 /internal/*.js
 /internal/*.js.map
 /tests/*.js
