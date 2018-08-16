@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "module": "system",
-    "target": "esnext",
     "declaration": true,
-    "sourceMap": true,
-    "outDir": ".",
-    "typeRoots": [
-      "./src/**/*"
-    ]
+    "module": "umd",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "target": "esnext",
+    "outDir": "dist",
+    "rootDir": "src"
   },
   "include": [
     "src/**/*"

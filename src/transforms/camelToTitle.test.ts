@@ -1,5 +1,5 @@
+import { curryRight } from 'lodash'
 import batchTest from '../tests/batchTest'
-import curryRight from 'lodash/curryRight'
 import camelToTitle from './camelToTitle'
 
 const batch = curryRight(batchTest)(camelToTitle)

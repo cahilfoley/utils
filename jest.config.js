@@ -1,19 +1,17 @@
-// const base = require('@cahil/tools/jest.config')
 const { name } = require('./package')
 
 module.exports = {
-  testURL: 'http://localhost/',
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx}',
+    '!**/node_modules/**',
+    '!**/index.ts'
+  ],
+  coverageDirectory: 'coverage',
   name,
-  globals: {
-    'ts-jest': {
-      tsConfigFile: 'tsconfig.json'
-    }
-  },
-  moduleFileExtensions: ['ts', 'js'],
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-    '^.+\\.jsx?$': 'babel-jest'
-  },
-  testMatch: ['**/src/**/*.test.(ts|js)'],
-  testEnvironment: 'node'
+  transform: { '^.+\\.ts?$': 'ts-jest' },
+  testEnvironment: 'node',
+  testRegex: '/src/.*\\.(test|spec)?\\.(ts|tsx)$',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  verbose: true
 }

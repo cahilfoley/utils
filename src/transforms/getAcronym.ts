@@ -1,8 +1,8 @@
 import {
   articles,
   conjunctions,
-  shortPrepositions,
-  others
+  others,
+  shortPrepositions
 } from '../internal/wordLists'
 
 // Words that are filtered out first

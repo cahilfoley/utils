@@ -6,7 +6,9 @@ const runTest = (
   [input, output]: any[],
   func: (...args: any[]) => any
 ): void => {
-  if (!Array.isArray(input)) input = [input]
+  if (!Array.isArray(input)) {
+    input = [input]
+  }
   expect(func(...input)).toBe(output)
 }
 

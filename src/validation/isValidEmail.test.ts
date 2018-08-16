@@ -1,6 +1,6 @@
+import { curryRight } from 'lodash'
 import batchTest from '../tests/batchTest'
 import buildCaseArray from '../tests/buildCaseArray'
-import curryRight from 'lodash/curryRight'
 import isValidEmail from './isValidEmail'
 
 const batch = curryRight(batchTest)(isValidEmail)

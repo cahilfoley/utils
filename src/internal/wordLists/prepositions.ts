@@ -49,11 +49,11 @@ export const all: string[] = [
   'until',
   'up',
   'upon',
+  'versus',
   'via',
   'with',
   'within',
-  'without',
-  'versus'
+  'without'
 ]
 
 /** Prepositions shorter than 5 characters */

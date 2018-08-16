@@ -1,6 +1,6 @@
+import { curryRight } from 'lodash'
 import batchTest from '../tests/batchTest'
 import buildCaseArray from '../tests/buildCaseArray'
-import curryRight from 'lodash/curryRight'
 import isNonEmptyString from './isNonEmptyString'
 
 const batch = curryRight(batchTest)(isNonEmptyString)

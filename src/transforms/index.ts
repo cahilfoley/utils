@@ -1,6 +1,6 @@
 import camelToTitle from './camelToTitle'
 import getAcronym from './getAcronym'
-import normalizeUrl from './normalizeUrl'
+import normalizeURL from './normalizeURL'
 
-export { camelToTitle, getAcronym, normalizeUrl }
-export default { camelToTitle, getAcronym, normalizeUrl }
+export { camelToTitle, getAcronym, normalizeURL }
+export default { camelToTitle, getAcronym, normalizeURL }

@@ -1,5 +1,5 @@
+import { curryRight } from 'lodash'
 import batchTest from '../tests/batchTest'
-import curryRight from 'lodash/curryRight'
 import getAcronym from './getAcronym'
 
 const batch = curryRight(batchTest)(getAcronym)

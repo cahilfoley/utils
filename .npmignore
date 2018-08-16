@@ -15,21 +15,10 @@
 .env.production.local
 
 # source code
-/internal/*.ts
-/tests/*.ts
-/transforms/*.ts
-/validation/*.ts
-index.ts
+/src
 
 # dev env
-.babelrc
 .gitignore
-.eslintrc.yml
-.prettierrc.yml
-
-# build config
-rollup.config.js
-/internal
 
 # test config
 jest.config.js

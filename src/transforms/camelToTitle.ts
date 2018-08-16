@@ -1,8 +1,8 @@
 import {
   articles,
   conjunctions,
-  shortPrepositions,
-  others
+  others,
+  shortPrepositions
 } from '../internal/wordLists'
 
 // Lists of words that shouldn't be capitalized
@@ -40,14 +40,16 @@ const capitalize = (input: string): string => {
  *
  * @example camelToTitle('iLoveCamels') // => 'I Love Camels'
  */
-const camelToTitle = (string: string): string => {
+const camelToTitle = (input: string): string => {
   // Split the string into the separate parts
-  const parts: string[] = (string + ' ').match(splitPattern)
+  const parts: string[] = (input + ' ').match(splitPattern)
 
   // Transform each part of the string
   const newParts: string[] = parts.map((part, index) => {
     // Always capitalize the first and last words
-    if (index === 0 || index === parts.length - 1) return capitalize(part)
+    if (index === 0 || index === parts.length - 1) {
+      return capitalize(part)
+    }
     return except.includes(part.toLowerCase())
       ? part.toLowerCase()
       : capitalize(part)
