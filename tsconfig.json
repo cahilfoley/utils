@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "module": "umd",
-    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "target": "esnext",
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "target": "esnext"
   },
   "include": [
     "src/**/*"
   ],
   "exclude": [
     "node_modules",
-    "**/*.test.ts",
+    "**/*.test.ts"
   ]
 }

@@ -1,14 +1,14 @@
 {
   "name": "@cahil/utils",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Various utility functions that might come in handy when building web apps",
-  "main": "dist/utils.js",
-  "module": "./src/",
+  "main": "index.js",
+  "module": "es/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p cjs.tsconfig.json && tsc -p es.tsconfig.json",
     "build:docs": "typedoc --exclude **/node_modules/**/*.ts --module umd --ignoreCompilerErrors --target ES6 --out doc/ src/",
     "bundle": "rollup -c",
-    "clean": "yarn rimraf dist coverage",
+    "clean": "rimraf dist coverage",
     "prepublishOnly": "npm run clean && npm run test && npm run build",
     "postpublish": "npm run clean",
     "test": "jest"
@@ -18,14 +18,13 @@
   ],
   "author": "Cahil Foley",
   "license": "MIT",
-  "peerDependencies": {
+  "dependencies": {
     "lodash": "^4"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
     "@types/lodash": "^4.14.116",
     "fs-extra": "^7.0.0",
-    "jest": "^23.5.0",
     "prettier-tslint": "^0.4.0",
     "rimraf": "^2.6.2",
     "ts-jest": "^23.1.3",

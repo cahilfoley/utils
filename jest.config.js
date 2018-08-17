@@ -7,7 +7,7 @@ module.exports = {
     '!**/node_modules/**',
     '!**/index.ts'
   ],
-  coverageDirectory: 'coverage',
+  coverageDirectory: 'dist/coverage',
   name,
   transform: { '^.+\\.ts?$': 'ts-jest' },
   testEnvironment: 'node',
