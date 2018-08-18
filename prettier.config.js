@@ -1,1 +1,4 @@
-module.exports = require('@cahil/tools/prettier.config')
+module.exports = {
+  semi: false,
+  singleQuote: true
+}
