@@ -1,10 +1,11 @@
 cache: yarn
 language: node_js
 node_js:
-  - "10"
+  - '10'
 script:
   - yarn test
   - yarn build
+before_deploy: cd dist && npm pack
 deploy:
   provider: npm
   email: cahil.npm@gmail.com
