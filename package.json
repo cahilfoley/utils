@@ -1,6 +1,6 @@
 {
   "name": "@cahil/utils",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "Various utility functions that might come in handy when building web apps",
   "main": "index.js",
   "module": "es/index.js",
