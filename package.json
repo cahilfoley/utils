@@ -1,9 +1,12 @@
 {
   "name": "@cahil/utils",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Various utility functions that might come in handy when building web apps",
   "main": "index.js",
   "module": "es/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "type-check": "tsc --noEmit",
     "build:amd": "tsc -p amd.tsconfig.json",
