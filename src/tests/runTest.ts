@@ -3,13 +3,31 @@
  * being tested, if anything else is provided then it is passed directly to the function
  */
 const runTest = (
-  [input, output]: any[],
-  func: (...args: any[]) => any
+  [inputs, output]: any[],
+  func: (...args: any[]) => any,
+  testVerb: string = 'toBe'
 ): void => {
-  if (!Array.isArray(input)) {
-    input = [input]
+  // If inputs is not an array, wrap it in an array so we can use the spread operator to pass args to test
+  if (!Array.isArray(inputs)) {
+    inputs = [inputs]
   }
-  expect(func(...input)).toBe(output)
+
+  // If testing for errors, wrap the function in an anonymous function
+  if (
+    [
+      'toThrow',
+      'toThrowError',
+      'toThrowErrorMatchingSnapshot',
+      'toThrowErrorMatchingInlineSnapshot'
+    ].includes(testVerb)
+  ) {
+    const testFunc = func
+    func = (...args) => () => {
+      testFunc(...args)
+    }
+  }
+
+  expect(func(...inputs))[testVerb](output)
 }
 
 export default runTest

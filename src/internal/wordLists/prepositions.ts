@@ -1,4 +1,7 @@
-/** All prepositions */
+/**
+ * All prepositions
+ * @internal
+ */
 export const all: string[] = [
   'about',
   'above',
@@ -56,7 +59,10 @@ export const all: string[] = [
   'without'
 ]
 
-/** Prepositions shorter than 5 characters */
+/**
+ * Prepositions shorter than 5 characters
+ * @internal
+ */
 export const short: string[] = all.filter(word => word.length < 5)
 
 export default all

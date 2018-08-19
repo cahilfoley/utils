@@ -1,17 +1,4 @@
-import {
-  articles,
-  conjunctions,
-  others,
-  shortPrepositions
-} from '../internal/wordLists'
-
-// Words that are filtered out first
-const except: string[] = [
-  ...articles,
-  ...conjunctions,
-  ...shortPrepositions,
-  ...others
-]
+import titleExceptions from '../internal/wordLists/titleExceptions'
 
 /**
  * Condense a provided string into a 2 or 3 letter acronym using the following rules
@@ -32,7 +19,7 @@ const getAcronym = (title: string): string => {
   } else if (words.length > 3) {
     // More than 3 words, try to filter out words in exception list
     const importantWords = words.filter(
-      word => !except.includes(word.toLowerCase())
+      word => !titleExceptions.includes(word.toLowerCase())
     )
 
     // If we have more than 1 word left then use the filtered set otherwise use the full set

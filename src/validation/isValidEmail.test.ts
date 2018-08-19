@@ -1,9 +1,9 @@
-import { curryRight } from 'lodash'
+import { partial } from 'lodash'
 import batchTest from '../tests/batchTest'
 import buildCaseArray from '../tests/buildCaseArray'
 import isValidEmail from './isValidEmail'
 
-const batch = curryRight(batchTest)(isValidEmail)
+const batch = partial(batchTest, isValidEmail)
 
 describe('Email Validation (isValidEmail)', () => {
   test('Identifies correct emails', () => {
@@ -37,9 +37,6 @@ describe('Email Validation (isValidEmail)', () => {
   })
 
   test('Identifies non-string values', () => {
-    batchTest(
-      buildCaseArray([null, undefined, { foo: 'bar' }, []], false),
-      isValidEmail
-    )
+    batch(buildCaseArray([null, undefined, { foo: 'bar' }, []], false))
   })
 })

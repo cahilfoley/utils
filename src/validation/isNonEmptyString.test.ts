@@ -1,11 +1,11 @@
-import { curryRight } from 'lodash'
+import { partial } from 'lodash'
 import batchTest from '../tests/batchTest'
 import buildCaseArray from '../tests/buildCaseArray'
 import isNonEmptyString from './isNonEmptyString'
 
-const batch = curryRight(batchTest)(isNonEmptyString)
+const batch = partial(batchTest, isNonEmptyString)
 
-describe('isNonEmptyString', () => {
+describe('Non-empty String Validation (isNonEmptyString)', () => {
   test('Identifies valid strings', () => {
     batch(buildCaseArray(['Something', 'Multiple words'], true))
   })

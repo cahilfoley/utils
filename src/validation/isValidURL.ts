@@ -1,15 +1,4 @@
-// Regular expression to match URL patterns, developed using this handy tool https://regexr.com/3sju0
-const urlRegex: RegExp = new RegExp(
-  [
-    '^(https?:\\/\\/)', // Protocol
-    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|((d{1,3}.){3}d{1,3}))', // Host name or IP
-    '(\\:\\d+)?', // Optional port
-    '(\\/[-a-z\\d%_.~+]*)*', // Path
-    '(\\?[;&a-z\\d%_.~+=-]*)?', // Optional query string
-    '(\\#[-a-z\\d_]*)?$' // Optional anchor hash
-  ].join(''),
-  'i'
-)
+import validURL from '../internal/patterns/validURL'
 
 /**
  * Checks if a value provided is of type string and is a valid URL. If the value is not a string
@@ -18,6 +7,6 @@ const urlRegex: RegExp = new RegExp(
  * @example const valid = isValidURL('http://www.google.com') // returns true
  */
 const isValidURL = (input: string): boolean =>
-  typeof input === 'string' && urlRegex.test(input)
+  typeof input === 'string' && validURL.test(input)
 
 export default isValidURL

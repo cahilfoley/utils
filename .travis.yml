@@ -4,8 +4,7 @@ node_js:
   - '10'
 script:
   - yarn test
-  - yarn build
-before_deploy: cd dist && npm pack
+before_deploy: yarn build && cd dist && npm pack
 deploy:
   provider: npm
   email: cahil.npm@gmail.com

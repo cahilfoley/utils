@@ -1,10 +1,10 @@
-import { curryRight } from 'lodash'
+import { partial } from 'lodash'
 import batchTest from '../tests/batchTest'
 import camelToTitle from './camelToTitle'
 
-const batch = curryRight(batchTest)(camelToTitle)
+const batch = partial(batchTest, camelToTitle)
 
-describe('camelToTitle', () => {
+describe('Camel Case to Title Case (camelToTitle)', () => {
   describe('Always capitalizes the first and last word', () => {
     test('Always capitalizes the first word', () => {
       batch([['toTitle', 'To Title'], ['hello', 'Hello'], ['InOut', 'In Out']])

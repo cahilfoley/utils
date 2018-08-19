@@ -1,10 +1,10 @@
-import { curryRight } from 'lodash'
+import { partial } from 'lodash'
 import batchTest from '../tests/batchTest'
 import getAcronym from './getAcronym'
 
-const batch = curryRight(batchTest)(getAcronym)
+const batch = partial(batchTest, getAcronym)
 
-describe('getAcronym', () => {
+describe('Get Acronym (getAcronym)', () => {
   describe('For a single word use the first 3 letters', () => {
     test('Handle words than are longer than 3 letters', () => {
       batch([['hello', 'HEL'], ['Photosynthesis', 'PHO']])

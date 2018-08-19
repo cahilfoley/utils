@@ -1,9 +1,9 @@
-import { curryRight } from 'lodash'
+import { partial } from 'lodash'
 import batchTest from '../tests/batchTest'
 import buildCaseArray from '../tests/buildCaseArray'
 import isValidURL from './isValidURL'
 
-const batch = curryRight(batchTest)(isValidURL)
+const batch = partial(batchTest, isValidURL)
 
 describe('URL Validation (isValidURL)', () => {
   test('Identifies valid URLs', () => {

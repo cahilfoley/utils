@@ -1,26 +1,6 @@
-import {
-  articles,
-  conjunctions,
-  others,
-  shortPrepositions
-} from '../internal/wordLists'
-
-// Lists of words that shouldn't be capitalized
-const except: string[] = [
-  ...articles,
-  ...conjunctions,
-  ...shortPrepositions,
-  ...others
-]
-
-// Regex pattern to split the camel case section into it's parts
-const splitPattern: RegExp = /[a-z]+|[0-9]+|(?:[A-Z][a-z]+)|([A-Z]+(?=(?:[A-Z][a-z])|[^A-Za-z]|[$\d\n]|\b))/g
-
-/** Capitalize the first letter of a string */
-const capitalize = (input: string): string => {
-  const [first, ...rest] = input
-  return [first.toUpperCase(), ...rest].join('')
-}
+import splitCamelCase from '../internal/patterns/splitCamelCase'
+import titleExceptions from '../internal/wordLists/titleExceptions'
+import capitalize from './capitalize'
 
 /**
  * Transforms the provided camel-case string to title case using rules from
@@ -42,7 +22,7 @@ const capitalize = (input: string): string => {
  */
 const camelToTitle = (input: string): string => {
   // Split the string into the separate parts
-  const parts: string[] = (input + ' ').match(splitPattern)
+  const parts: string[] = (input + ' ').match(splitCamelCase)
 
   // Transform each part of the string
   const newParts: string[] = parts.map((part, index) => {
@@ -50,7 +30,7 @@ const camelToTitle = (input: string): string => {
     if (index === 0 || index === parts.length - 1) {
       return capitalize(part)
     }
-    return except.includes(part.toLowerCase())
+    return titleExceptions.includes(part.toLowerCase())
       ? part.toLowerCase()
       : capitalize(part)
   })
