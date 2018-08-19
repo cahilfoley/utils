@@ -3,7 +3,7 @@ import runTest from './runTest'
 interface IBatchTestOptions {
   verb?: string
   runner?: (
-    [inputs, output]: any[],
+    testCase: [any, any],
     func: (...args: any[]) => any,
     testVerb?: string
   ) => void
