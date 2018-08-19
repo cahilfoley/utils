@@ -16,7 +16,7 @@
     "build:amd": "tsc -p amd.tsconfig.json",
     "build:cjs": "tsc -p cjs.tsconfig.json --emitDeclarationOnly && babel src -d dist -x \".ts,.tsx\" -p cjs.tsconfig.json",
     "build:es": "tsc -p es.tsconfig.json",
-    "build:docs": "typedoc --exclude **/node_modules/**/*.ts --module umd --ignoreCompilerErrors --target ES6 --out doc/ src/",
+    "build:docs": "typedoc --module es2015 --out doc/ src/",
     "build": "run-p build:cjs build:es build:amd && node scripts/copyPackage",
     "clean": "rimraf dist coverage",
     "prepublishOnly": "npm run clean && npm run test && npm run build",

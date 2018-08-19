@@ -3,8 +3,8 @@
 # dependencies
 /node_modules
 
-# testing
-/coverage
+# documentation
+/docs
 
 # misc
 .DS_Store
