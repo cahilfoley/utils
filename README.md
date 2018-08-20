@@ -1,9 +1,15 @@
-# utils
+# @cahil/utils
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/cahilfoley/utils.svg)](https://greenkeeper.io/)
+<div style='display: flex; align-items: center;'>
 
-[![Coverage Status](https://coveralls.io/repos/github/cahilfoley/utils/badge.svg?branch=master)](https://coveralls.io/github/cahilfoley/utils?branch=master)
+<a href='https://greenkeeper.io/'><img src='https://badges.greenkeeper.io/cahilfoley/utils.svg' alt='Greenkeeper badge' /></a>
 
-[![Build Status](https://travis-ci.org/cahilfoley/utils.svg?branch=master)](https://travis-ci.org/cahilfoley/utils)
+<a href='https://coveralls.io/github/cahilfoley/utils?branch=master' style='margin-left: 8px'><img src='https://coveralls.io/repos/github/cahilfoley/utils/badge.svg?branch=master' alt='Coverage Status' /></a>
+
+<a href='https://travis-ci.org/cahilfoley/utils' style='margin-left: 8px'><img src='https://travis-ci.org/cahilfoley/utils.svg?branch=master' alt='Build Status' /></a>
+
+</div>
 
 Various utilities to assist when developing JS or TS projects
+
+Documentation coming soon
