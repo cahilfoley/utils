@@ -1,4 +1,6 @@
-const { name } = require('./package')
+const {
+  name
+} = require('./package')
 
 module.exports = {
   collectCoverage: true,
@@ -9,7 +11,9 @@ module.exports = {
   ],
   coverageDirectory: 'dist/coverage',
   name,
-  transform: { '^.+\\.ts?$': 'ts-jest' },
+  transform: {
+    '^.+\\.ts?$': 'ts-jest'
+  },
   testEnvironment: 'node',
   testRegex: '/src/.*\\.(test|spec)?\\.(ts|tsx)$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
