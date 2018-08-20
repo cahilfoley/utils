@@ -26,3 +26,5 @@ fs.writeFileSync(
   ),
   'utf8'
 )
+
+fs.copyFileSync(path.join(process.cwd(), 'README.md'), path.join(process.cwd(), 'dist/README.md'))
