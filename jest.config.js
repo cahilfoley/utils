@@ -10,12 +10,12 @@ module.exports = {
     '!**/index.ts'
   ],
   coverageDirectory: 'dist/coverage',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   name,
+  testEnvironment: 'node',
+  testRegex: '/src/.*\\.(test|spec)?\\.(ts|tsx)$',
   transform: {
     '^.+\\.ts?$': 'ts-jest'
   },
-  testEnvironment: 'node',
-  testRegex: '/src/.*\\.(test|spec)?\\.(ts|tsx)$',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   verbose: true
 }

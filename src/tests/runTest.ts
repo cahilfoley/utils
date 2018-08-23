@@ -11,9 +11,6 @@ const runTest = (
 
   // If inputs is not an array, wrap it in an array so we can use the spread operator to pass args to test
   const inputs: any[] = !Array.isArray(rawInputs) ? [rawInputs] : rawInputs
-  // if (!Array.isArray(inputs)) {
-  //   inputs: any[] = [inputs]
-  // }
 
   // If testing for errors, wrap the function in an anonymous function
   if (

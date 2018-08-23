@@ -10,7 +10,7 @@
     /* Allow javascript files to be compiled. */
     // "allowJs": true,                       
     /* Report errors in .js files. */
-    // "checkJs": true,                       
+    // "checkJs": true,
     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
     // "jsx": "preserve",                     
     /* Generates corresponding '.d.ts' file. */
