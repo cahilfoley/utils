@@ -7,6 +7,11 @@ const clone = (original: any) => {
   if (typeof original === 'function') {
     return {}
   }
+  
+  // Nulls will be caught as objects later so return them now
+  if (original === null) {
+    return null 
+  }
 
   // If the input is a date, create a new one with the same value
   if (original instanceof Date) {
