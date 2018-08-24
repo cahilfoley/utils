@@ -1,11 +1,15 @@
+interface ICloneOptions {
+  copyFuncs: bool
+}
+
 /**
  * Creates a deep clone of a value
  * @param original The value to clone
  */
-const clone = (original: any) => {
+const clone = (original: any, { copyFuncs }: ICloneOptions) => {
   // Can't clone functions
   if (typeof original === 'function') {
-    return {}
+    return copyFuncs ? original : {}
   }
   
   // Nulls will be caught as objects later so return them now
