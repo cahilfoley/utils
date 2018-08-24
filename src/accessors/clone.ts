@@ -5,9 +5,10 @@ interface ICloneOptions {
 /**
  * Creates a deep clone of a value
  * @param original The value to clone
+ * @param options Config options
  */
 const clone = (original: any, { copyFuncs }: ICloneOptions) => {
-  // Can't clone functions
+  // Can't clone functions, only copy if the flag is set
   if (typeof original === 'function') {
     return copyFuncs ? original : {}
   }
