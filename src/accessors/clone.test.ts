@@ -12,13 +12,13 @@ describe('Deep Clone (clone)', () => {
   })
 
   test('Deeply nested primitives are cloned', () => {
-    const original = { foo: { bar: 'hello', baz: 'world' } }
+    const original = { foo: { bar: 'hello', baz: 'world', nothing: null } }
     const copy = clone(original)
 
     copy.foo.bar = 'bar'
     copy.foo.baz = 'baz'
 
-    expect(original.foo).toEqual({ bar: 'hello', baz: 'world' })
+    expect(original.foo).toEqual({ bar: 'hello', baz: 'world', nothing: null })
   })
 
   test('Dates are cloned', () => {
