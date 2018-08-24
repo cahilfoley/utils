@@ -25,7 +25,7 @@ const clone = (original: any, { copyFuncs }: ICloneOptions = {}): any => {
 
     // If the input is an array, clone each item
     if (Array.isArray(original)) {
-        return original.map(clone)
+        return original.map(value => clone(value))
     }
 
     // If the input is an object, clone each value onto a new object
