@@ -32,11 +32,15 @@ describe('Deep Clone (clone)', () => {
     expect(original.start.valueOf()).toBe(now)
   })
 
-  test('Functions are converted to empty objects', () => {
-    const original = { foo: { bar: () => 'baz' } }
+  test('Functions are converted to empty objects unless flag is set', () => {
+    const func = () => 'baz'
+    const original = { foo: { bar: func } }
+    
     const copy = clone(original)
-
     expect(copy).toEqual({ foo: { bar: {} } })
+    
+    const copy2 = clone(original, { copyFuncs: true })
+    expect(copy).toEqual({ foo: { bar: func } })
   })
 
   test('Objects within arrays are cloned', () => {
