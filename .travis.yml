@@ -26,3 +26,4 @@ deploy:
     tags: true
     repo: cahilfoley/utils
     branch: master
+after_deploy: yarn build:docs && yarn deploy:docs
