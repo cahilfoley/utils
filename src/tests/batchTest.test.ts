@@ -1,4 +1,4 @@
-import { partial } from 'lodash'
+import partial from 'lodash.partial'
 import batchTest from './batchTest'
 
 const _ = partial.placeholder
@@ -48,11 +48,7 @@ describe('Batch Test (batchTest)', () => {
           verb: 'toThrow'
         })
 
-        expect(mockVerbRunner).toBeCalledWith(
-          ['in', 'out'],
-          mockFunction,
-          'toThrow'
-        )
+        expect(mockVerbRunner).toBeCalledWith(['in', 'out'], mockFunction, 'toThrow')
       })
 
       test('Custom verb used if not provided', () => {

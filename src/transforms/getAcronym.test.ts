@@ -1,4 +1,4 @@
-import { partial } from 'lodash'
+import partial from 'lodash.partial'
 import batchTest from '../tests/batchTest'
 import getAcronym from './getAcronym'
 
@@ -26,10 +26,7 @@ describe('Get Acronym (getAcronym)', () => {
     })
 
     test('Ignore additional delimiter characters', () => {
-      batch([
-        ['Sneaky  double  spaces', 'SDS'],
-        ['What__about--multiple', 'WAM']
-      ])
+      batch([['Sneaky  double  spaces', 'SDS'], ['What__about--multiple', 'WAM']])
     })
   })
 

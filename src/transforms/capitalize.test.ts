@@ -1,4 +1,4 @@
-import { partial } from 'lodash'
+import partial from 'lodash.partial'
 import batchTest from '../tests/batchTest'
 import capitalize from './capitalize'
 
@@ -11,14 +11,8 @@ describe('Capitalize String (capitalize)', () => {
 
   test(`Capitalize the first letter of a sentence`, () => {
     batch([
-      [
-        'please capitalize the first letter.',
-        'Please capitalize the first letter.'
-      ],
-      [
-        'Non-creative test cases for this function',
-        'Non-creative test cases for this function'
-      ],
+      ['please capitalize the first letter.', 'Please capitalize the first letter.'],
+      ['Non-creative test cases for this function', 'Non-creative test cases for this function'],
       ['from dusk till dawn', 'From dusk till dawn']
     ])
   })

@@ -12,4 +12,4 @@
 
 Various utilities to assist when developing JS or TS projects
 
-Documentation coming soon
+Check out the [documentation](https://cahilfoley.github.io/utils/)

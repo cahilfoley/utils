@@ -1,4 +1,4 @@
-import { partial } from 'lodash'
+import partial from 'lodash.partial'
 import batchTest from '../tests/batchTest'
 import buildCaseArray from '../tests/buildCaseArray'
 import normalizeURL from './normalizeURL'
@@ -80,19 +80,13 @@ describe('Normalize URL (normalizeURL)', () => {
     batch([
       ['http://some.api/users/?userID=5', 'http://some.api/users?userID=5'],
       ['api/users/?userID=5&filter=foo', 'api/users?userID=5&filter=foo'],
-      [
-        ['http://supernet.dev', '/?apiKey=1234'],
-        'http://supernet.dev?apiKey=1234'
-      ]
+      [['http://supernet.dev', '/?apiKey=1234'], 'http://supernet.dev?apiKey=1234']
     ])
   })
 
   test(`Replaces '?' in parameters with '&'`, () => {
     batch([
-      [
-        'http://some.api/users?userID=5?filter=foo',
-        'http://some.api/users?userID=5&filter=foo'
-      ],
+      ['http://some.api/users?userID=5?filter=foo', 'http://some.api/users?userID=5&filter=foo'],
       [
         ['http://supernet.dev', '?apiKey=1234', '?filter=foo'],
         'http://supernet.dev?apiKey=1234&filter=foo'

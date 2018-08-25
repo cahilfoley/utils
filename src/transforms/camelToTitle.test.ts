@@ -1,4 +1,4 @@
-import { partial } from 'lodash'
+import partial from 'lodash.partial'
 import batchTest from '../tests/batchTest'
 import camelToTitle from './camelToTitle'
 
@@ -11,11 +11,7 @@ describe('Camel Case to Title Case (camelToTitle)', () => {
     })
 
     test('Always capitalizes the last word', () => {
-      batch([
-        ['toTitle', 'To Title'],
-        ['fooBar', 'Foo Bar'],
-        ['InOut', 'In Out']
-      ])
+      batch([['toTitle', 'To Title'], ['fooBar', 'Foo Bar'], ['InOut', 'In Out']])
     })
   })
 
