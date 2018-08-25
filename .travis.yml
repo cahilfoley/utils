@@ -3,17 +3,15 @@ cache:
   directories:
     - node_modules
 language: node_js
-branches:
-  only:
-    - master
-    - /^greenkeeper/.*$/
 node_js:
   - '10'
 notifications:
   email: false
 script:
   - yarn test && cat ./dist/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
-before_deploy: yarn build && cd dist && npm pack
+before_deploy:
+  - yarn build && cd dist && npm pack
+  - yarn build:docs && yarn deploy:docs
 deploy:
   provider: npm
   email: cahil.npm@gmail.com
@@ -24,4 +22,3 @@ deploy:
     tags: true
     repo: cahilfoley/utils
     branch: master
-after_deploy: yarn build:docs && yarn deploy:docs
