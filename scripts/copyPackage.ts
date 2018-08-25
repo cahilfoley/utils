@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const pkg = require(path.join(process.cwd(), 'package.json'))
+const packageInfo = require(path.join(process.cwd(), 'package.json'))
 
 const keysToCopy: string[] = [
   'author',
@@ -19,7 +19,8 @@ fs.writeFileSync(
   path.join(process.cwd(), 'dist/package.json'),
   JSON.stringify(
     keysToCopy.reduce((output, key) => {
-      output[key] = pkg[key]
+      output[key] = packageInfo[key]
+
       return output
     }, {}),
     null,
