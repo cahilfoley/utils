@@ -9,9 +9,7 @@ notifications:
   email: false
 script:
   - yarn test && cat ./dist/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
-before_deploy:
-  - yarn build && cd dist && npm pack
-  - yarn build:docs && yarn deploy:docs
+before_deploy: yarn build:docs && yarn deploy:docs && yarn build && cd dist && npm pack
 deploy:
   provider: npm
   email: cahil.npm@gmail.com
