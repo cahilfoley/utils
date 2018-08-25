@@ -13,8 +13,6 @@ notifications:
   email: false
 script:
   - yarn test && cat ./dist/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
-after_success:
-  - npm run travis-deploy-once "npm run semantic-release"
 before_deploy: yarn build && cd dist && npm pack
 deploy:
   provider: npm
