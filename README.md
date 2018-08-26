@@ -10,6 +10,40 @@
 
 </div>
 
-Various utilities to assist when developing JS or TS projects
+Various utilities to assist when developing JS or TS projects, check out the [documentation](https://cahilfoley.github.io/utils/).
 
-Check out the [documentation](https://cahilfoley.github.io/utils/)
+## Installation
+
+Using npm
+
+```
+npm install @cahil/utils
+```
+
+Or with yarn
+
+```
+yarn add @cahil/utils
+```
+
+## Usage
+
+The recommended way to use the library is to import only the functions that you need. For example, to use the camelToTitle function from the transforms library you would use:
+
+```js
+// Best 👍
+import camelToTitle from '@cahil/utils/transforms/camelToTitle'
+```
+
+However, if you prefer, you can also import from the libraries or root directly.
+
+```js
+// Still not too bad
+import { camelToTitle } from '@cahil/utils/transforms'
+
+// OR
+
+// Who likes minimizing bundle size anyway 👎
+import { transforms } from '@cahil/utils'
+const { camelToTitle } = transforms
+```
