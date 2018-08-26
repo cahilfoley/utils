@@ -1,7 +1,7 @@
 {
   "name": "@cahil/utils",
   "version": "1.0.2",
-  "description": "Various utility functions that might come in handy when building web apps",
+  "description": "Various utility functions that might come in handy when building things in JavaScript",
   "main": "index.umd.js",
   "module": "index.js",
   "typings": "index.d.ts",
@@ -33,12 +33,12 @@
     "test": "yarn type-check && jest"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.49",
-    "@babel/core": "^7.0.0-beta.49",
-    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.49",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
-    "@babel/preset-env": "^7.0.0-beta.49",
-    "@babel/preset-typescript": "^7.0.0-beta.49",
+    "@babel/cli": "^7.0.0-rc.3",
+    "@babel/core": "^7.0.0-rc.3",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-rc.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-rc.3",
+    "@babel/preset-env": "^7.0.0-rc.3",
+    "@babel/preset-typescript": "^7.0.0-rc.3",
     "@types/jest": "^23.3.1",
     "@types/lodash": "^4.14.116",
     "@types/node": "^10.9.2",

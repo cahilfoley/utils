@@ -44,6 +44,5 @@ import { camelToTitle } from '@cahil/utils/transforms'
 // OR
 
 // I hope you've got some good tree shaking 🌴👎
-import { transforms } from '@cahil/utils'
-const { camelToTitle } = transforms
+import { camelToTitle } from '@cahil/utils'
 ```

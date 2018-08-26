@@ -5,6 +5,7 @@
 
 # testing
 /coverage
+/test.js
 
 # production, don't modify the below comments, they are used in the build file to ignore generated folders
 .out.json
