@@ -1,6 +1,6 @@
 {
   "name": "@cahil/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Various utility functions that might come in handy when building web apps",
   "main": "index.umd.js",
   "module": "index.js",
