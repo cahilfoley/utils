@@ -560,6 +560,12 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@forked/turndown@^4.0.4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@forked/turndown/-/turndown-4.0.4.tgz#26d0a26ad6bcdfd467b33aa83e8c81c8d39d5a43"
+  dependencies:
+    jsdom "^11.10.0"
+
 "@types/events@*":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
@@ -2540,7 +2546,7 @@ jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
 
-jsdom@^11.5.1:
+jsdom@^11.10.0, jsdom@^11.5.1:
   version "11.12.0"
   resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-11.12.0.tgz#1a80d40ddd378a1de59656e9e6dc5a3ba8657bc8"
   dependencies:
@@ -4065,6 +4071,12 @@ type-check@~0.3.2:
 typedoc-default-themes@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/typedoc-default-themes/-/typedoc-default-themes-0.5.0.tgz#6dc2433e78ed8bea8e887a3acde2f31785bd6227"
+
+typedoc-plugin-markdown@^1.1.14:
+  version "1.1.14"
+  resolved "https://registry.yarnpkg.com/typedoc-plugin-markdown/-/typedoc-plugin-markdown-1.1.14.tgz#cba9e063775575582941371ebbc0bd0fd68f04e0"
+  dependencies:
+    "@forked/turndown" "^4.0.4"
 
 typedoc@^0.12.0:
   version "0.12.0"

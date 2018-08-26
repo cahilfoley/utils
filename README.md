@@ -43,7 +43,7 @@ import { camelToTitle } from '@cahil/utils/transforms'
 
 // OR
 
-// Who likes minimizing bundle size anyway 👎
+// I hope you've got some good tree shaking 🌴👎
 import { transforms } from '@cahil/utils'
 const { camelToTitle } = transforms
 ```

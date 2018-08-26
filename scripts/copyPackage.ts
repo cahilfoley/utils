@@ -28,4 +28,4 @@ fs.writeFileSync(
   )
 )
 
-fs.copyFileSync(path.join(process.cwd(), 'README.md'), path.join(process.cwd(), 'dist/README.md'))
+// fs.copyFileSync(path.join(process.cwd(), 'README.md'), path.join(process.cwd(), 'dist/README.md'))

@@ -24,7 +24,8 @@
     "build:cjs": "tsc -p cjs.tsconfig.json --emitDeclarationOnly && babel src -d dist -x \".ts,.tsx\" -p cjs.tsconfig.json",
     "build:es": "tsc -p es.tsconfig.json",
     "build:docs": "typedoc --options typedoc.json src/",
-    "build": "run-p build:cjs build:es build:amd && ts-node scripts/copyPackage",
+    "build:readme": "typedoc --options typedoc-md.json src/",
+    "build": "yarn clean && yarn build:readme && run-p build:cjs build:es build:amd && ts-node scripts/copyPackage",
     "clean": "rimraf dist coverage docs",
     "deploy:docs": "ts-node scripts/ghPagesPublish",
     "prepublishOnly": "yarn clean && yarn test && yarn build",
@@ -55,6 +56,7 @@
     "tslint-config-prettier": "^1.15.0",
     "tslint-config-standard": "^7.1.0",
     "typedoc": "^0.12.0",
+    "typedoc-plugin-markdown": "^1.1.14",
     "typescript": "^3.0.1"
   },
   "dependencies": {

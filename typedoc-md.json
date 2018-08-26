@@ -1,0 +1,9 @@
+{
+  "module": "es",
+  "mode": "file",
+  "target": "esnext",
+  "exclude": ["**/*.test.ts", "**/internal/**/*.ts"],
+  "theme": "markdown",
+  "out": "dist/",
+  "excludeExternals": true
+}
