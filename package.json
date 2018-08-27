@@ -1,8 +1,8 @@
 {
   "name": "@cahil/utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Various utility functions that might come in handy when building things in JavaScript",
-  "main": "index.umd.js",
+  "main": "index.amd.js",
   "module": "index.js",
   "typings": "index.d.ts",
   "keywords": [
@@ -24,6 +24,7 @@
     "build:cjs": "tsc -p cjs.tsconfig.json --emitDeclarationOnly && babel src -d dist -x \".ts,.tsx\" -p cjs.tsconfig.json",
     "build:es": "tsc -p es.tsconfig.json",
     "build:docs": "typedoc --options typedoc.json src/",
+    "build:docsjson": "typedoc --options typedoc-json.json src/",
     "build:readme": "typedoc --options typedoc-md.json src/",
     "build": "yarn clean && yarn build:readme && run-p build:cjs build:es build:amd && ts-node scripts/copyPackage",
     "clean": "rimraf dist coverage docs",

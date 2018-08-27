@@ -3,6 +3,7 @@ import titleExceptions from '../internal/wordLists/titleExceptions'
 import capitalize from './capitalize'
 
 /**
+ *
  * Transforms the provided camel-case string to title case using rules from
  * [capitalizemytitle.com](https://capitalizemytitle.com/#)
  *
@@ -18,7 +19,12 @@ import capitalize from './capitalize'
  * When one of the above conditions is not met then the word is assumed to be some other important word
  * and it is capitalized
  *
+ * @param input The camel-case string to be converted
+ *
+ * @category transforms
+ *
  * @example camelToTitle('iLoveCamels') // => 'I Love Camels'
+ *
  */
 const camelToTitle = (input: string): string => {
   // Split the string into the separate parts
@@ -30,9 +36,7 @@ const camelToTitle = (input: string): string => {
     if (index === 0 || index === parts.length - 1) {
       return capitalize(part)
     }
-    return titleExceptions.includes(part.toLowerCase())
-      ? part.toLowerCase()
-      : capitalize(part)
+    return titleExceptions.includes(part.toLowerCase()) ? part.toLowerCase() : capitalize(part)
   })
 
   // Return the parts separated by a space

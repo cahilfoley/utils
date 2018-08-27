@@ -1,3 +1,1 @@
-import updateItem from './updateItem'
-
-export { updateItem }
+export { default as updateItem } from './updateItem'

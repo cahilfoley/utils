@@ -4,7 +4,7 @@
   "mode": "file",
   "target": "esnext",
   "exclude": ["**/*.test.ts", "**/internal/**/*.ts"],
-  "theme": "./doc-themes/minimal",
-  "out": "docs/",
+  "theme": "minimal",
+  "json": "docs/utils.json",
   "excludeExternals": true
 }

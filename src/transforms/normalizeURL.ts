@@ -1,30 +1,38 @@
 /**
+ *
  * Sanitises and safely joins sections of a URL, this includes removing duplicate slashes in the path and
  * ensuring correctly formatted protocols.
+ *
+ * @param urlParts The URL parts to be joined
+ *
+ * @category transforms
+ *
+ * @example const url = normalizeURL('https://cahilfoley.github.io/', '/utils') // => 'https://cahilfoley.github.io/utils'
+ *
  */
-const noramlizeURL = (...strArray: string[]) => {
+const noramlizeURL = (...urlParts: string[]): string => {
   const resultArray = []
 
   // Ignore empty strings at the start
-  while (strArray[0].trim() === '') {
-    strArray.shift()
+  while (urlParts[0].trim() === '') {
+    urlParts.shift()
   }
 
   // If the first part is a plain protocol we combine it with the next part
-  if (strArray[0].match(/^[^/:]+:\/*$/) && strArray.length > 1) {
+  if (urlParts[0].match(/^[^/:]+:\/*$/) && urlParts.length > 1) {
     // Strip any colon or slashes from the protocol
-    const protocol = strArray.shift().replace(/:\/*/, '')
+    const protocol = urlParts.shift().replace(/:\/*/, '')
     // Join with two slashes, next section will convert to 3 for file protocol if needed
-    strArray[0] = `${protocol}://` + strArray[0]
+    urlParts[0] = `${protocol}://` + urlParts[0]
   }
 
   // There must be two or three slashes in the file protocol, two slashes in anything else.
-  strArray[0] = strArray[0].match(/^file:\/+/)
-    ? strArray[0].replace(/^([^/:]+):\/*/, '$1:///')
-    : strArray[0].replace(/^([^/:]+):\/*/, '$1://')
+  urlParts[0] = urlParts[0].match(/^file:\/+/)
+    ? urlParts[0].replace(/^([^/:]+):\/*/, '$1:///')
+    : urlParts[0].replace(/^([^/:]+):\/*/, '$1://')
 
-  for (let i = 0; i < strArray.length; i++) {
-    let section = strArray[i]
+  for (let i = 0; i < urlParts.length; i++) {
+    let section = urlParts[i]
 
     if (typeof section !== 'string') {
       throw new TypeError(
@@ -43,7 +51,7 @@ const noramlizeURL = (...strArray: string[]) => {
 
     // Removing the ending slashes for each component but the last.
     section =
-      i < strArray.length - 1
+      i < urlParts.length - 1
         ? section.replace(/[/]+$/, '')
         : // For the last component we will combine multiple slashes to a single one.
           section.replace(/[/]+$/, '/')

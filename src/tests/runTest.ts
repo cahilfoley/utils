@@ -1,6 +1,16 @@
 /**
+ *
  * Runs a test based on input(s), if an array is provided then the items are passed as arguments to the function
  * being tested, if anything else is provided then it is passed directly to the function
+ *
+ * @param testCase A tuple of inputs and expected output
+ * @param func The function to test
+ * @param testVerb The jest `expect` verb to use when testing - defaults to `toBe`
+ *
+ * @category tests
+ *
+ * @example runTest([[3, 5], 8], (a, b) => a + b)
+ *
  */
 const runTest = (
   testCase: [any, any],

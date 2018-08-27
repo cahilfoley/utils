@@ -1,8 +1,14 @@
 /**
+ *
  * Checks if a value provided is of type string and has a non-zero length. If the value is not a string
  * or it is an empty string then the function returns false
  *
- * @example const valid = isNonEmptyString('hello') // returns true
+ * @param text The text to validate
+ *
+ * @category validation
+ *
+ * @example const valid = isNonEmptyString('hello') // => true
+ *
  */
 export const isNonEmptyString = (text: string): boolean => {
   if (typeof text === 'string') {

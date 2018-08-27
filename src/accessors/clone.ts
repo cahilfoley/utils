@@ -1,13 +1,24 @@
-/** Options to modify the behaviour of the clone function */
+/**
+ *
+ * Options to modify the behaviour of the clone function
+ *
+ * @category accessors
+ *
+ */
 interface ICloneOptions {
   /** Flag to specify that functions should be copied by reference rather than converted to empty objects */
   copyFunctions?: boolean
 }
 
 /**
+ *
  * Creates a deep clone of a value
+ *
  * @param original The value to clone
  * @param options Config options
+ *
+ * @category accessors
+ *
  */
 const clone = (original: any, options: ICloneOptions = {}): any => {
   // Can't clone functions, only copy if the flag is set

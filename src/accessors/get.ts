@@ -1,14 +1,15 @@
 /**
+ *
  * Gets the value at path of object. If the resolved value is undefined, the defaultValue is returned in its place.
+ *
  * @param object The object to query
  * @param path The path of the property to get
  * @param defaultValue The value returned for undefined resolved values
+ *
+ * @category accessors
+ *
  */
-const get = (
-  object: object,
-  path: string[] | string,
-  defaultValue?: any
-): void => {
+const get = (object: object, path: string[] | string, defaultValue?: any): void => {
   // If the path was a string, split it by periods
   if (typeof path === 'string') {
     path = path.split('.')

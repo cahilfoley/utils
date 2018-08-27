@@ -1,9 +1,17 @@
 import titleExceptions from '../internal/wordLists/titleExceptions'
 
 /**
+ *
  * Condense a provided string into a 2 or 3 letter acronym using the following rules
  * - If there is only a single word return the first 3 letters
  * - If there are more than 3 words filter out articles, conjunctions and short prepositions
+ *
+ * @param title The string to convert to an acronym
+ *
+ * @category transforms
+ *
+ * @example const acronym = getAcronym('Empire Strikes Back') // => 'ESB'
+ *
  */
 const getAcronym = (title: string): string => {
   // Split the words on delimiters and filter out any empties
@@ -18,9 +26,7 @@ const getAcronym = (title: string): string => {
     return words[0].substring(0, 3).toUpperCase()
   } else if (words.length > 3) {
     // More than 3 words, try to filter out words in exception list
-    const importantWords = words.filter(
-      word => !titleExceptions.includes(word.toLowerCase())
-    )
+    const importantWords = words.filter(word => !titleExceptions.includes(word.toLowerCase()))
 
     // If we have more than 1 word left then use the filtered set otherwise use the full set
     if (importantWords.length > 1) {

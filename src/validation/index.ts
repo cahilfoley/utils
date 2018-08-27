@@ -1,5 +1,3 @@
-import isNonEmptyString from './isNonEmptyString'
-import isValidEmail from './isValidEmail'
-import isValidURL from './isValidURL'
-
-export { isNonEmptyString, isValidEmail, isValidURL }
+export { default as isNonEmptyString } from './isNonEmptyString'
+export { default as isValidEmail } from './isValidEmail'
+export { default as isValidURL } from './isValidURL'

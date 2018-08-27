@@ -1,11 +1,17 @@
 import get from '../accessors/get'
 
 /**
+ *
  * Updates an item in an array and returns a new array
+ * @category array
+ *
  * @param array The array to update
  * @param query A map of property paths (period delimited string) to values used to test if an object should be updated,
  * the paths are used in the get function
  * @param updateCallback A callback used to update the item
+ *
+ * @category array
+ *
  */
 const updateItem = (
   array: object[],
