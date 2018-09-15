@@ -12,11 +12,11 @@
  * @example runTest([[3, 5], 8], (a, b) => a + b)
  *
  */
-const runTest = (
+export function runTest(
   testCase: [any, any],
   func: (...args: any[]) => any,
   testVerb: string = 'toBe'
-): void => {
+): void {
   const [rawInputs, output] = testCase
 
   // If inputs is not an array, wrap it in an array so we can use the spread operator to pass args to test
@@ -41,3 +41,6 @@ const runTest = (
 }
 
 export default runTest
+module.exports = runTest
+module.exports.runTest = runTest
+module.exports.default = runTest

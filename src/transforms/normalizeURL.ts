@@ -10,7 +10,7 @@
  * @example const url = normalizeURL('https://cahilfoley.github.io/', '/utils') // => 'https://cahilfoley.github.io/utils'
  *
  */
-const noramlizeURL = (...urlParts: string[]): string => {
+export function noramlizeURL(...urlParts: string[]): string {
   const resultArray = []
 
   // Ignore empty strings at the start
@@ -73,3 +73,6 @@ const noramlizeURL = (...urlParts: string[]): string => {
 }
 
 export default noramlizeURL
+module.exports = noramlizeURL
+module.exports.noramlizeURL = noramlizeURL
+module.exports.default = noramlizeURL

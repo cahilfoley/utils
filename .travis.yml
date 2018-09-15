@@ -4,8 +4,7 @@ node_js:
   - '10'
 notifications:
   email: false
-script:
-  - yarn test && cat ./dist/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./dist/coverage
+script: yarn test && cat ./.temp/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 before_deploy: yarn build && cd dist && npm pack
 deploy:
   provider: npm

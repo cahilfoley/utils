@@ -10,11 +10,9 @@
  * @category accessors
  *
  */
-const set = (object: object, path: string[] | string, value: any): void => {
+export function set(object: object, path: string[] | string, value: any): void {
   // If the path was a string, split it by periods
-  if (typeof path === 'string') {
-    path = path.split('.')
-  }
+  path = typeof path === 'string' ? path.split('.') : path
 
   // Next key to access
   const next = path.shift()
@@ -35,3 +33,6 @@ const set = (object: object, path: string[] | string, value: any): void => {
 }
 
 export default set
+module.exports = set
+module.exports.set = set
+module.exports.default = set

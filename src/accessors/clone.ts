@@ -5,10 +5,19 @@
  * @category accessors
  *
  */
-interface ICloneOptions {
+export interface ICloneOptions {
   /** Flag to specify that functions should be copied by reference rather than converted to empty objects */
   copyFunctions?: boolean
 }
+
+/**
+ *
+ * Result of the clone function when not cloning functions
+ *
+ */
+type CloneResult<T> = T extends Function
+  ? {}
+  : T extends object ? { [K in keyof T]: CloneResult<T[K]> } : T
 
 /**
  *
@@ -20,7 +29,12 @@ interface ICloneOptions {
  * @category accessors
  *
  */
-const clone = (original: any, options: ICloneOptions = {}): any => {
+export function clone<T>(original: T): CloneResult<T>
+export function clone<T, O extends ICloneOptions>(
+  original: T,
+  options: O
+): O['copyFunctions'] extends true ? T : CloneResult<T>
+export function clone(original: any, options: ICloneOptions = {}): any {
   // Can't clone functions, only copy if the flag is set
   if (typeof original === 'function') {
     return options.copyFunctions ? original : {}
@@ -55,3 +69,6 @@ const clone = (original: any, options: ICloneOptions = {}): any => {
 }
 
 export default clone
+module.exports = clone
+module.exports.clone = clone
+module.exports.default = clone

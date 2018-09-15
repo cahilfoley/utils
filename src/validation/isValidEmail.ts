@@ -11,6 +11,11 @@ import emailPattern from '../internal/patterns/emailAddress'
  * @example isValidEmail(`no spaces@sham.co`) // => false
  *
  */
-const isValidEmail = (text: string): boolean => emailPattern.test(text)
+export function isValidEmail(text: string): boolean {
+  return emailPattern.test(text)
+}
 
 export default isValidEmail
+module.exports = isValidEmail
+module.exports.isValidEmail = isValidEmail
+module.exports.default = isValidEmail

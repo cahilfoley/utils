@@ -1,31 +1,39 @@
-const fs = require('fs')
-const path = require('path')
-const packageInfo = require(path.join(process.cwd(), 'package.json'))
+import fs from 'fs-extra'
+import path from 'path'
+import pick from 'lodash/pick'
 
-const keysToCopy: string[] = [
+// Folders used
+const distDir = path.join(process.cwd(), 'dist')
+const tempDir = path.join(process.cwd(), '.temp')
+
+// Info from the main package.json file filtered to only certain keys for dist
+const packageInfo = pick(require(path.join(process.cwd(), 'package.json')), [
   'author',
   'dependencies',
-  'peerDependencies',
   'description',
-  'name',
-  'version',
+  'keywords',
+  'license',
   'main',
   'module',
-  'keywords',
-  'license'
-]
+  'name',
+  'peerDependencies',
+  'typings',
+  'version'
+])
 
-fs.writeFileSync(
-  path.join(process.cwd(), 'dist/package.json'),
-  JSON.stringify(
-    keysToCopy.reduce((output, key) => {
-      output[key] = packageInfo[key]
+async function copyAssets() {
+  const operations = [
+    // Copying a reduced version of the package.json without dev dependencies or scripts etc
+    fs.writeJSON(path.join(distDir, 'package.json'), packageInfo, { spaces: 2 }),
 
-      return output
-    }, {}),
-    null,
-    2
-  )
-)
+    // Copy the generated README file
+    fs.copySync(path.join(tempDir, 'readme'), path.join(distDir))
+  ]
 
-// fs.copyFileSync(path.join(process.cwd(), 'README.md'), path.join(process.cwd(), 'dist/README.md'))
+  // Wait until done
+  await Promise.all(operations)
+
+  console.log('Production assets copied to dist file')
+}
+
+copyAssets()
