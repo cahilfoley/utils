@@ -10,9 +10,9 @@
  * @example const items = toProperList(['foo', 'bar', 'baz']) // => 'foo, bar and baz'
  *
  */
-function toProperList(items: (string | number)[]): string
-function toProperList(...items: (string | number)[]): string
-function toProperList(...items: any[]): string {
+export function toProperList(items: (string | number)[]): string
+export function toProperList(...items: (string | number)[]): string
+export function toProperList(...items: any[]): string {
   const inputs: (string | number)[] = Array.isArray(items[0]) ? items[0] : items
 
   let output: string = ''
@@ -48,3 +48,6 @@ function toProperList(...items: any[]): string {
 }
 
 export default toProperList
+module.exports = toProperList
+module.exports.toProperList = toProperList
+module.exports.default = toProperList
