@@ -19,6 +19,7 @@
 
 # dev env
 .gitignore
+.travis.yml
 
 # test config
 jest.config.js
