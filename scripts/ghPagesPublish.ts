@@ -1,29 +1,31 @@
-const { cd, exec, echo, touch } = require('shelljs')
-const { readFileSync } = require('fs')
-const url = require('url')
+import { IPackageJSON } from '../typings/package-json'
+import { cd, exec, echo, touch } from 'shelljs'
+import url from 'url'
+import path from 'path'
+import get from '../src/accessors/get'
 
-let repoUrl
-let pkg = JSON.parse(readFileSync('package.json') as any)
-if (typeof pkg.repository === 'object') {
-  if (!pkg.repository.hasOwnProperty('url')) {
-    throw new Error('URL does not exist in repository section')
-  }
-  repoUrl = pkg.repository.url
-} else {
-  repoUrl = pkg.repository
+const packageInfo: IPackageJSON = require(path.join(process.cwd(), 'package.json'))
+
+const repoURL: string = get(
+  packageInfo,
+  `repository${typeof packageInfo.repository === 'object' ? '.url' : ''}`
+)
+
+if (!repoURL) {
+  throw new Error('URL does not exist in repository section')
 }
 
-let parsedUrl = url.parse(repoUrl)
-let repository = (parsedUrl.host || '') + (parsedUrl.path || '')
-let ghToken = process.env.GH_TOKEN
+const parsedURL = url.parse(repoURL)
+const repository = (parsedURL.host || '') + (parsedURL.path || '')
+const githubToken = process.env.GH_TOKEN
 
-echo('Deploying docs!!!')
+echo('Deploying documentation')
 cd('docs')
 touch('.nojekyll')
 exec('git init')
 exec('git add .')
 exec('git config user.name "Cahil Foley"')
 exec('git config user.email "cahilfoley2@gmail.com"')
-exec('git commit -m "docs(docs): update gh-pages"')
-exec(`git push --force --quiet "https://${ghToken}@${repository}" master:gh-pages`)
-echo('Docs deployed!!')
+exec(`git commit -m "docs(docs): update gh-pages for version ${packageInfo.version}"`)
+exec(`git push --force --quiet "https://${githubToken}@${repository}" master:gh-pages`)
+echo('Documentation successfully deployed')

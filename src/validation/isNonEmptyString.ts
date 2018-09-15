@@ -10,7 +10,7 @@
  * @example const valid = isNonEmptyString('hello') // => true
  *
  */
-export const isNonEmptyString = (text: string): boolean => {
+export function isNonEmptyString(text: string): boolean {
   if (typeof text === 'string') {
     return text.trim().length > 0
   }
@@ -18,3 +18,6 @@ export const isNonEmptyString = (text: string): boolean => {
 }
 
 export default isNonEmptyString
+module.exports = isNonEmptyString
+module.exports.isNonEmptyString = isNonEmptyString
+module.exports.default = isNonEmptyString

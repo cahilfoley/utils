@@ -13,11 +13,11 @@ import get from '../accessors/get'
  * @category array
  *
  */
-const updateItem = (
+export function updateItem(
   array: object[],
   query: object,
   updateCallback: (item: any) => any
-): object[] => {
+): object[] {
   // Loop through all of the items
   const updatedArray = array.map(item => {
     // Assume it's a match
@@ -43,3 +43,6 @@ const updateItem = (
 }
 
 export default updateItem
+module.exports = updateItem
+module.exports.updateItem = updateItem
+module.exports.default = updateItem

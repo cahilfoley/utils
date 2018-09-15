@@ -10,7 +10,11 @@
  * @example const evenTests = [...buildCaseArray([2, 4, 6], true), ...buildCaseArray([1, 3, 5], false)]
  *
  */
-const buildCaseArray = (testInputs: any[], output: any): any[][] =>
-  testInputs.map(testCase => [testCase, output])
+export function buildCaseArray(testInputs: any[], output: any): any[][] {
+  return testInputs.map(testCase => [testCase, output])
+}
 
 export default buildCaseArray
+module.exports = buildCaseArray
+module.exports.buildCaseArray = buildCaseArray
+module.exports.default = buildCaseArray

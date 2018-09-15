@@ -26,7 +26,7 @@ import capitalize from './capitalize'
  * @example camelToTitle('iLoveCamels') // => 'I Love Camels'
  *
  */
-const camelToTitle = (input: string): string => {
+export function camelToTitle(input: string): string {
   // Split the string into the separate parts
   const parts: string[] = (input + ' ').match(splitCamelCase)
 
@@ -44,3 +44,6 @@ const camelToTitle = (input: string): string => {
 }
 
 export default camelToTitle
+module.exports = camelToTitle
+module.exports.camelToTitle = camelToTitle
+module.exports.default = camelToTitle

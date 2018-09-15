@@ -22,7 +22,7 @@
     /* Concatenate and emit output to single file. */
     // "outFile": "./",
     /* Redirect output structure to the directory. */
-    "outDir": "dist",
+    // "outDir": "dist",
     /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
     "rootDir": "src",
     /* Enable project compilation */
@@ -100,10 +100,11 @@
     /* Enables experimental support for emitting type metadata for decorators. */
     // "emitDecoratorMetadata": true,
   },
+  "include": [
+    "src/**/*",
+  ],
   "exclude": [
     "node_modules",
-    "dist",
-    "scripts",
-    "src/**/*.test.ts"
+    "**/*.test.ts"
   ]
 }

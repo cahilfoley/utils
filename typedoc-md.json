@@ -5,6 +5,6 @@
   "target": "esnext",
   "exclude": ["**/*.test.ts", "**/internal/**/*.ts"],
   "theme": "markdown",
-  "out": "dist/",
+  "out": ".temp/readme",
   "excludeExternals": true
 }
