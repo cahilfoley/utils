@@ -1,10 +1,10 @@
 {
-  "name": "Utils",
+  "name": "@cahil/utils",
   "module": "es",
   "mode": "file",
   "target": "esnext",
   "exclude": ["**/*.test.ts", "**/internal/**/*.ts"],
   "theme": "minimal",
-  "json": "docs/utils.json",
+  "json": ".temp/docs/utils.json",
   "excludeExternals": true
 }
