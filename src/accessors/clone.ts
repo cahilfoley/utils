@@ -12,8 +12,18 @@ export interface ICloneOptions {
 
 /**
  *
+ * Result of the clone function when not cloning functions
+ *
+ */
+type CloneResult<T> = T extends Function
+  ? {}
+  : T extends object ? { [K in keyof T]: CloneResult<T[K]> } : T
+
+/**
+ *
  * Creates a deep clone of a value
  *
+ * @typeparam T The type of the original value
  * @param original The value to clone
  * @param options Config options
  * @return Returns the deep cloned value
