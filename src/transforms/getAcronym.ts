@@ -7,13 +7,14 @@ import titleExceptions from '../internal/wordLists/titleExceptions'
  * - If there are more than 3 words filter out articles, conjunctions and short prepositions
  *
  * @param title The string to convert to an acronym
+ * @return Returns the acronym string
  *
  * @category transforms
  *
  * @example const acronym = getAcronym('Empire Strikes Back') // => 'ESB'
  *
  */
-const getAcronym = (title: string): string => {
+export function getAcronym(title: string): string {
   // Split the words on delimiters and filter out any empties
   let words: string[] = title
     .split(/ |\.|_|,|-/g)
@@ -43,3 +44,6 @@ const getAcronym = (title: string): string => {
 }
 
 export default getAcronym
+module.exports = getAcronym
+module.exports.getAcronym = getAcronym
+module.exports.default = getAcronym

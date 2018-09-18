@@ -5,7 +5,7 @@
  * @category accessors
  *
  */
-interface ICloneOptions {
+export interface ICloneOptions {
   /** Flag to specify that functions should be copied by reference rather than converted to empty objects */
   copyFunctions?: boolean
 }
@@ -16,11 +16,13 @@ interface ICloneOptions {
  *
  * @param original The value to clone
  * @param options Config options
+ * @return Returns the deep cloned value
  *
  * @category accessors
  *
  */
-const clone = (original: any, options: ICloneOptions = {}): any => {
+export function clone<T>(original: T, options?: ICloneOptions): T
+export function clone(original: any, options: ICloneOptions = {}): any {
   // Can't clone functions, only copy if the flag is set
   if (typeof original === 'function') {
     return options.copyFunctions ? original : {}
@@ -55,3 +57,6 @@ const clone = (original: any, options: ICloneOptions = {}): any => {
 }
 
 export default clone
+module.exports = clone
+module.exports.clone = clone
+module.exports.default = clone

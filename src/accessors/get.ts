@@ -5,15 +5,14 @@
  * @param object The object to query
  * @param path The path of the property to get
  * @param defaultValue The value returned for undefined resolved values
+ * @return The value if it exists, if not then either the default value is returned or undefined
  *
  * @category accessors
  *
  */
-const get = (object: object, path: string[] | string, defaultValue?: any): void => {
+export function get(object: object, path: string[] | string, defaultValue?: any): any {
   // If the path was a string, split it by periods
-  if (typeof path === 'string') {
-    path = path.split('.')
-  }
+  path = typeof path === 'string' ? path.split('.') : path
 
   // Next key to access
   const next = path.shift()
@@ -34,3 +33,6 @@ const get = (object: object, path: string[] | string, defaultValue?: any): void 
 }
 
 export default get
+module.exports = get
+module.exports.get = get
+module.exports.default = get

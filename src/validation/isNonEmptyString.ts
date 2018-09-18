@@ -4,13 +4,14 @@
  * or it is an empty string then the function returns false
  *
  * @param text The text to validate
+ * @return True if the value is an empty string, false otherwise
  *
  * @category validation
  *
  * @example const valid = isNonEmptyString('hello') // => true
  *
  */
-export const isNonEmptyString = (text: string): boolean => {
+export function isNonEmptyString(text: string): boolean {
   if (typeof text === 'string') {
     return text.trim().length > 0
   }
@@ -18,3 +19,6 @@ export const isNonEmptyString = (text: string): boolean => {
 }
 
 export default isNonEmptyString
+module.exports = isNonEmptyString
+module.exports.isNonEmptyString = isNonEmptyString
+module.exports.default = isNonEmptyString

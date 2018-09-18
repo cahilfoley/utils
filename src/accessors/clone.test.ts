@@ -48,7 +48,7 @@ describe('Deep Clone (clone)', () => {
     const copy = clone(original)
 
     copy.foo[0].bar = 'bar'
-    copy.foo[1].bar = 1
+    copy.foo[1].bar = '1'
 
     expect(original.foo[0]).toEqual({ bar: 'hello' })
     expect(original.foo[1]).toEqual({ bar: 'world' })

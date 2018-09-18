@@ -3,14 +3,15 @@
  * Sanitises and safely joins sections of a URL, this includes removing duplicate slashes in the path and
  * ensuring correctly formatted protocols.
  *
- * @param urlParts The URL parts to be joined
+ * @param urlParts The URL parts to be joined and normalized
+ * @return Returns the joined and normalized URL parts as a string
  *
  * @category transforms
  *
  * @example const url = normalizeURL('https://cahilfoley.github.io/', '/utils') // => 'https://cahilfoley.github.io/utils'
  *
  */
-const noramlizeURL = (...urlParts: string[]): string => {
+export function noramlizeURL(...urlParts: string[]): string {
   const resultArray = []
 
   // Ignore empty strings at the start
@@ -73,3 +74,6 @@ const noramlizeURL = (...urlParts: string[]): string => {
 }
 
 export default noramlizeURL
+module.exports = noramlizeURL
+module.exports.noramlizeURL = noramlizeURL
+module.exports.default = noramlizeURL

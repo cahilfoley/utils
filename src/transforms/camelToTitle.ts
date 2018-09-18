@@ -20,13 +20,14 @@ import capitalize from './capitalize'
  * and it is capitalized
  *
  * @param input The camel-case string to be converted
+ * @return Returns the transformed title case string
  *
  * @category transforms
  *
  * @example camelToTitle('iLoveCamels') // => 'I Love Camels'
  *
  */
-const camelToTitle = (input: string): string => {
+export function camelToTitle(input: string): string {
   // Split the string into the separate parts
   const parts: string[] = (input + ' ').match(splitCamelCase)
 
@@ -44,3 +45,6 @@ const camelToTitle = (input: string): string => {
 }
 
 export default camelToTitle
+module.exports = camelToTitle
+module.exports.camelToTitle = camelToTitle
+module.exports.default = camelToTitle
