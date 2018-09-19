@@ -20,7 +20,6 @@
     "url": "https://github.com/cahilfoley/utils.git"
   },
   "scripts": {
-    "precommit": "lint-staged",
     "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "type-check": "tsc --noEmit",
     "build:amd": "tsc -p config/amd.tsconfig.json",
