@@ -1,6 +1,6 @@
 import filterBy from './filterBy'
 
-describe("Array Filter By (filterBy)", () => {
+describe('Array Filter By (filterBy)', () => {
   const employeeOneLevel = [
     { name: 'Alice', role: 'developer' },
     { name: 'Bob', role: 'developer' },
@@ -18,48 +18,48 @@ describe("Array Filter By (filterBy)", () => {
   ]
 
 
-  test("Simple object with one level", () => {
+  test('Simple object with one level', () => {
     expect(filterBy(employeeOneLevel, 'role', 'developer')).toEqual([
       { name: 'Alice', role: 'developer' },
       { name: 'Bob', role: 'developer' }
     ])
   })
 
-  test("Simple object with one level, with incorrect path", () => {
+  test('Simple object with one level, with incorrect path', () => {
     expect(filterBy(employeeOneLevel, 'name', 'developer')).toEqual([])
   })
 
-  test("Simple object with one level, with empty array", () => {
+  test('Simple object with one level, with empty array', () => {
     expect(filterBy([], 'name', 'developer')).toEqual([])
   })
 
-  test("Simple object with two level with empty path", () => {
+  test('Simple object with two level with empty path', () => {
     expect(filterBy([], '', 'Alice')).toEqual([])
   })
   
-  test("Simple object with two level", () => {
+  test('Simple object with two level', () => {
     expect(filterBy(employeeTwoLevel, ['name', 'first'], 'Alice')).toEqual([
       { name: { first: 'Alice', last: 'Citizen' }, role: 'developer' },
       { name: { first: 'Alice', last: 'Other' }, role: 'analyst' }
     ])
   })
 
-  test("Simple object with two level with empty array", () => {
+  test('Simple object with two level with empty array', () => {
     expect(filterBy(employeeTwoLevel, ['first', 'name'], 'Alice')).toEqual([])
   })
 
-  test("Simple object with two level with empty array", () => {
+  test('Simple object with two level with empty array', () => {
     expect(filterBy([], ['first', 'name'], 'Alice')).toEqual([])
   })
 
-  test("Simple object with three level", () => {
+  test('Simple object with three level', () => {
     expect(filterBy(employeeThreeLevel, ['client', 'name', 'first'], 'Alice')).toEqual([
       { client: { name: { first: 'Alice', last: 'Citizen' }, role: 'developer' }},
       { client: { name: { first: 'Alice', last: 'Other' }, role: 'analyst' }}
     ])
   })
 
-  test("Simple object with three level, with incorrect path", () => {
+  test('Simple object with three level, with incorrect path', () => {
     expect(filterBy(employeeThreeLevel, ['client', 'first', 'name'], 'Alice')).toEqual([])
   })
 })
