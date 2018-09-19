@@ -1,8 +1,11 @@
 # @cahil/utils
 
 ![Greenkeeper Badge](https://badges.greenkeeper.io/cahilfoley/utils.svg)
-![Coverage Status](https://coveralls.io/repos/github/cahilfoley/utils/badge.svg?branch=master)
-![Build Status](https://travis-ci.org/cahilfoley/utils.svg?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/cahilfoley/utils/badge.svg?branch=master)](https://coveralls.io/github/cahilfoley/utils?branch=master)
+[![Build Status](https://travis-ci.org/cahilfoley/utils.svg?branch=master)](https://travis-ci.org/cahilfoley/utils)
+[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![GitHub license](https://img.shields.io/github/license/cahilfoley/utils.svg)](https://github.com/cahilfoley/utils/blob/master/LICENSE)
+[![NPM](https://img.shields.io/npm/v/@cahil/utils.svg)](https://www.npmjs.com/package/@cahil/utils)
 
 Various utilities to assist when developing JS or TS projects, check out the [documentation](https://cahilfoley.github.io/utils/).
 
