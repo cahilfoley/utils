@@ -13,7 +13,7 @@ import get from '../accessors/get'
  * @category array
  *
  */
-export function updateItem(
+export default function updateItem(
   array: object[],
   query: object,
   updateCallback: (item: any) => any
@@ -41,8 +41,3 @@ export function updateItem(
 
   return updatedArray
 }
-
-export default updateItem
-module.exports = updateItem
-module.exports.updateItem = updateItem
-module.exports.default = updateItem

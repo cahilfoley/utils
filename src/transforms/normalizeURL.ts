@@ -11,7 +11,7 @@
  * @example const url = normalizeURL('https://cahilfoley.github.io/', '/utils') // => 'https://cahilfoley.github.io/utils'
  *
  */
-export function noramlizeURL(...urlParts: string[]): string {
+export default function noramlizeURL(...urlParts: string[]): string {
   const resultArray = []
 
   // Ignore empty strings at the start
@@ -72,8 +72,3 @@ export function noramlizeURL(...urlParts: string[]): string {
 
   return str
 }
-
-export default noramlizeURL
-module.exports = noramlizeURL
-module.exports.noramlizeURL = noramlizeURL
-module.exports.default = noramlizeURL

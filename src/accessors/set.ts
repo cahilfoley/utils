@@ -10,7 +10,7 @@
  * @category accessors
  *
  */
-export function set(object: object, path: string[] | string, value: any): void {
+export default function set(object: object, path: string[] | string, value: any): void {
   // If the path was a string, split it by periods
   path = typeof path === 'string' ? path.split('.') : path
 
@@ -31,8 +31,3 @@ export function set(object: object, path: string[] | string, value: any): void {
     object[next] = value
   }
 }
-
-export default set
-module.exports = set
-module.exports.set = set
-module.exports.default = set

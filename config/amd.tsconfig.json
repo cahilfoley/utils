@@ -1,7 +1,9 @@
 {
   "extends": "../tsconfig",
   "compilerOptions": {
+    "rootDir": "../.temp/src",
     "module": "amd",
     "outFile": "../dist/index.amd.js"
-  }
+  },
+  "include": ["../.temp/src"]
 }
