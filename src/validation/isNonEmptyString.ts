@@ -11,14 +11,9 @@
  * @example const valid = isNonEmptyString('hello') // => true
  *
  */
-export function isNonEmptyString(text: string): boolean {
+export default function isNonEmptyString(text: string): boolean {
   if (typeof text === 'string') {
     return text.trim().length > 0
   }
   return false
 }
-
-export default isNonEmptyString
-module.exports = isNonEmptyString
-module.exports.isNonEmptyString = isNonEmptyString
-module.exports.default = isNonEmptyString

@@ -16,7 +16,7 @@
  * // Returns [[1, 3], [2, 4]]
  *
  */
-function partitionArray<T>(
+export default function partitionArray<T>(
   array: Array<T>,
   predicate: (value: T, index: number, array: Array<T>) => boolean,
   context?: any
@@ -32,8 +32,3 @@ function partitionArray<T>(
   })
   return [first, second]
 }
-
-export default partitionArray
-module.exports = partitionArray
-module.exports.partitionArray = partitionArray
-module.exports.default = partitionArray
