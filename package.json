@@ -74,5 +74,10 @@
   },
   "peerDependencies": {
     "jest": "^22 || ^23"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
