@@ -12,7 +12,7 @@
  * @example runTest([[3, 5], 8], (a, b) => a + b)
  *
  */
-export function runTest(
+export default function runTest(
   testCase: [any, any],
   func: (...args: any[]) => any,
   testVerb: string = 'toBe'
@@ -39,8 +39,3 @@ export function runTest(
 
   expect(func(...inputs))[testVerb](output)
 }
-
-export default runTest
-module.exports = runTest
-module.exports.runTest = runTest
-module.exports.default = runTest

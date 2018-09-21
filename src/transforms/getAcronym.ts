@@ -14,7 +14,7 @@ import titleExceptions from '../internal/wordLists/titleExceptions'
  * @example const acronym = getAcronym('Empire Strikes Back') // => 'ESB'
  *
  */
-export function getAcronym(title: string): string {
+export default function getAcronym(title: string): string {
   // Split the words on delimiters and filter out any empties
   let words: string[] = title
     .split(/ |\.|_|,|-/g)
@@ -42,8 +42,3 @@ export function getAcronym(title: string): string {
     .join('')
     .substring(0, 3)
 }
-
-export default getAcronym
-module.exports = getAcronym
-module.exports.getAcronym = getAcronym
-module.exports.default = getAcronym

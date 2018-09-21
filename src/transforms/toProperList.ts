@@ -10,7 +10,7 @@
  * @example const itemsString = toProperList(['apples', 'pears', 'bananas']) // => 'apples, pears and bananas'
  *
  */
-function toProperList(...items: string[]): string {
+export default function toProperList(...items: string[]): string {
   let itemsString = ''
   let length = items.length
   // If you have only one item in the array
@@ -42,8 +42,3 @@ function toProperList(...items: string[]): string {
 
   return itemsString
 }
-
-export default toProperList
-module.exports = toProperList
-module.exports.toProperList = toProperList
-module.exports.default = toProperList
