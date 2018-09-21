@@ -13,11 +13,6 @@ import validURL from '../internal/patterns/validURL'
  * @example const valid = isValidURL('http://www.google.com') // returns true
  *
  */
-export function isValidURL(text: string): boolean {
+export default function isValidURL(text: string): boolean {
   return typeof text === 'string' && validURL.test(text)
 }
-
-export default isValidURL
-module.exports = isValidURL
-module.exports.isValidURL = isValidURL
-module.exports.default = isValidURL

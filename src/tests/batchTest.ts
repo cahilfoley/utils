@@ -30,7 +30,7 @@ export interface IBatchTestOptions {
  * @example batchTest(double, [[2, 4], [5, 10]])
  *
  */
-export function batchTest(
+export default function batchTest(
   func: (...args: any[]) => any,
   cases: any[][],
   { verb, runner }: IBatchTestOptions = {}
@@ -46,8 +46,3 @@ export function batchTest(
   // Run each test case with the new testRunner
   cases.forEach(testRunner)
 }
-
-export default batchTest
-module.exports = batchTest
-module.exports.batchTest = batchTest
-module.exports.default = batchTest

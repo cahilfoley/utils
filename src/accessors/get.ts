@@ -10,7 +10,7 @@
  * @category accessors
  *
  */
-export function get(object: object, path: string[] | string, defaultValue?: any): any {
+export default function get(object: object, path: string[] | string, defaultValue?: any): any {
   // If the path was a string, split it by periods
   path = typeof path === 'string' ? path.split('.') : path
 
@@ -31,8 +31,3 @@ export function get(object: object, path: string[] | string, defaultValue?: any)
     return object[next]
   }
 }
-
-export default get
-module.exports = get
-module.exports.get = get
-module.exports.default = get
