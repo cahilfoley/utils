@@ -6,6 +6,7 @@
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![GitHub license](https://img.shields.io/github/license/cahilfoley/utils.svg)](https://github.com/cahilfoley/utils/blob/master/LICENSE)
 [![NPM](https://img.shields.io/npm/v/@cahil/utils.svg)](https://www.npmjs.com/package/@cahil/utils)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 Various utilities to assist when developing JS or TS projects, check out the [documentation](https://cahilfoley.github.io/utils/).
 
