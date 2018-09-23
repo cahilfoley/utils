@@ -4,24 +4,17 @@ import toProperList from './toProperList'
 
 const batch = partial(batchTest, toProperList)
 
-describe('ProperList String (toProperList)', () => {
+describe('Properly Formatted List (toProperList)', () => {
   test(`When the list is empty`, () => {
-    batch([
-      [[], '']
-    ])
+    batch([[[], '']])
   })
 
-
-  test(`No commas and o 'and'`, () => {
-    batch([
-      [['apples'], 'apples']
-    ])
+  test(`No commas and no 'and'`, () => {
+    batch([[['apples'], 'apples']])
   })
 
   test(`With only two items`, () => {
-    batch([
-      [['apples','bananas'], 'apples and bananas']
-    ])
+    batch([[['apples', 'bananas'], 'apples and bananas']])
   })
 
   test(`With three or more items`, () => {
@@ -29,6 +22,17 @@ describe('ProperList String (toProperList)', () => {
       [['apples', 'pears', 'bananas'], 'apples, pears and bananas'],
       [['apples', 'pears', 'bananas', 'grape'], 'apples, pears, bananas and grape'],
       [['apples', 'pears', 'bananas', 'grape', 'lemon'], 'apples, pears, bananas, grape and lemon']
+    ])
+  })
+
+  test('With an array of inputs', () => {
+    batch([
+      [[['apples', 'pears', 'bananas']], 'apples, pears and bananas'],
+      [[['apples', 'pears', 'bananas', 'grape']], 'apples, pears, bananas and grape'],
+      [
+        [['apples', 'pears', 'bananas', 'grape', 'lemon']],
+        'apples, pears, bananas, grape and lemon'
+      ]
     ])
   })
 })
