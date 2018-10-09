@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/cahilfoley/utils/compare/v1.1.0...v1.2.0) (2018-10-09)
+
+
+### Bug Fixes
+
+* **transforms:** handle array of strings as input to `toProperList` ([7d9ae22](https://github.com/cahilfoley/utils/commit/7d9ae22))
+
+
+### Features
+
+* **array:** add `flatten` function ([#21](https://github.com/cahilfoley/utils/issues/21)) ([c5f7c03](https://github.com/cahilfoley/utils/commit/c5f7c03))
+
+
+
 <a name="1.1.0"></a>
 
 # [1.1.0](https://github.com/cahilfoley/utils/compare/v1.0.5...v1.1.0) (2018-09-21)
