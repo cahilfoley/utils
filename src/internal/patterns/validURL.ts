@@ -3,8 +3,8 @@ const urlRegex: RegExp = new RegExp(
   [
     '^(https?:\\/\\/)', // Protocol
     '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}', // Internet routable host
-    '|(([a-zd]([a-zd-]*[a-zd])*))', // Host on same domain
-    '|((d{1,3}.){3}d{1,3}))', // IP address
+    '|([a-z\\d]([a-z\\d-]*[a-z\\d])*)', // Host on same domain
+    '|(\\d{1,3}\\.){3}\\d{1,3})', // IP address
     '(\\:\\d+)?', // Optional port
     '(\\/[-a-z\\d%_.~+]*)*', // Path
     '(\\?[;&a-z\\d%_.~+=-]*)?', // Optional query string
