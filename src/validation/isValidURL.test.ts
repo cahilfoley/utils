@@ -14,7 +14,8 @@ describe('URL Validation (isValidURL)', () => {
           'http://jakob.info',
           'http://www.google.com',
           'http://lorempixel.com/640/480/technics',
-          'https://s3.amazonaws.com/uifaces/faces/twitter/besbujupi/128.jpg'
+          'https://s3.amazonaws.com/uifaces/faces/twitter/besbujupi/128.jpg',
+          'https://localhost/home'
         ],
         true
       )
