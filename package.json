@@ -1,6 +1,6 @@
 {
   "name": "@cahil/utils",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Various utility functions that might come in handy when building things in JavaScript",
   "browser": "index.amd.js",
   "main": "index.js",
