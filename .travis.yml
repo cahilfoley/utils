@@ -1,11 +1,11 @@
-cache: yarn
+cache: npm
 language: node_js
 node_js:
   - '10'
 notifications:
   email: false
-script: yarn test && cat ./.temp/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-before_deploy: yarn build && cd dist && npm pack
+script: tsc --noEmit && jest --coverage --coverageReporters=text-lcov | coveralls
+before_deploy: npm run build && cd dist && npm pack
 deploy:
   provider: npm
   email: cahil.npm@gmail.com
@@ -16,4 +16,4 @@ deploy:
     tags: true
     repo: cahilfoley/utils
     branch: master
-after_deploy: cd .. && yarn build:docs && yarn deploy:docs
+after_deploy: cd .. && npm run build:docs && npm run deploy:docs

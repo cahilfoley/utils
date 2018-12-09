@@ -1,0 +1,3 @@
+config/* linguist-detectable=false
+dist/* linguist-generated=true
+doc-themes/* linguist-documentation=true
