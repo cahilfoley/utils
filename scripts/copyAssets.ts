@@ -33,7 +33,7 @@ async function copyAssets() {
   // Wait until done
   await Promise.all(operations)
 
-  console.log('Production assets copied to dist file')
+  console.log('Production assets copied to dist folder')
 }
 
 copyAssets()
