@@ -4,7 +4,7 @@ node_js:
   - '10'
 notifications:
   email: false
-script: test && cat ./.temp/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+script: tsc --noEmit && jest --coverage --coverageReporters=text-lcov | coveralls
 before_deploy: npm run build && cd dist && npm pack
 deploy:
   provider: npm
