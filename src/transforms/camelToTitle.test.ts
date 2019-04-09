@@ -1,4 +1,4 @@
-import partial from 'lodash.partial'
+import partial from '../function/partial'
 import batchTest from '../tests/batchTest'
 import camelToTitle from './camelToTitle'
 

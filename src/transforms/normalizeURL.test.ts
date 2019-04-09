@@ -1,10 +1,9 @@
-import partial from 'lodash.partial'
+import partial from '../function/partial'
 import batchTest from '../tests/batchTest'
 import buildCaseArray from '../tests/buildCaseArray'
 import normalizeURL from './normalizeURL'
 
-const _ = partial.placeholder
-const batch = partial(batchTest, normalizeURL, _)
+const batch = partial(batchTest, normalizeURL)
 
 describe('Normalize URL (normalizeURL)', () => {
   test('Removes duplicate slashes in a url path', () => {

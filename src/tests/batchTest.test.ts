@@ -1,7 +1,4 @@
-import partial from 'lodash.partial'
 import batchTest from './batchTest'
-
-const _ = partial.placeholder
 
 describe('Batch Test (batchTest)', () => {
   const cases: any[][] = [[0, 0], [1, 2], ['foo', 'bar'], ['input', 'output']]

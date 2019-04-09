@@ -31,11 +31,12 @@
     "build:readme": "typedoc --options config/typedoc-md.json src/",
     "build:dist": "run-p build:readme build:cjs build:es build:amd",
     "build:exports": "babel-node scripts/transformExports.ts -x .ts",
-    "build": "npm run clean:build && npm run build:exports && npm run build:dist && babel-node scripts/copyAssets.ts -x .ts",
+    "build": "run-s clean:build build:exports build:dist copy:assets",
+    "copy:assets": "babel-node scripts/copyAssets.ts -x .ts",
     "clean:build": "rimraf dist .temp/src",
     "clean": "rimraf dist docs .temp",
     "deploy:docs": "babel-node scripts/ghPagesPublish.ts -x .ts",
-    "prepublishOnly": "npm run clean && npm run test && npm run build",
+    "prepublishOnly": "run-s clean test build",
     "postpublish": "npm run clean",
     "release": "standard-version",
     "test": "npm run type-check && jest"
@@ -74,12 +75,8 @@
     "typedoc-plugin-markdown": "1.1.27",
     "typescript": "^3.4.2"
   },
-  "dependencies": {
-    "lodash.partial": "^4.2.1"
-  },
-  "peerDependencies": {
-    "jest": "^22 || ^23"
-  },
+  "dependencies": {},
+  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
