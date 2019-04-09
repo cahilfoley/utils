@@ -6,6 +6,11 @@
   "main": "index.js",
   "module": "es/index.js",
   "typings": "index.d.ts",
+  "homepage": "https://cahilfoley.github.io/utils/",
+  "bugs": {
+    "url": "https://github.com/cahilfoley/utils/issues",
+    "email": "cahil.npm@gmail.com"
+  },
   "keywords": [
     "utils",
     "utilities"
