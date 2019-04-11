@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.3.1](https://github.com/cahilfoley/utils/compare/v1.3.0...v1.3.1) (2019-04-09)
 
+
+
 # [1.3.0](https://github.com/cahilfoley/utils/compare/v1.2.4...v1.3.0) (2019-04-09)
 
 ### Features
