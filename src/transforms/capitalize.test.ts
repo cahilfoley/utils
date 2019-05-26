@@ -13,7 +13,7 @@ describe('Capitalize String (capitalize)', () => {
     batch([
       ['please capitalize the first letter.', 'Please capitalize the first letter.'],
       ['Non-creative test cases for this function', 'Non-creative test cases for this function'],
-      ['from dusk till dawn', 'From dusk till dawn']
+      ['from dusk till dawn', 'From dusk till dawn'],
     ])
   })
 
@@ -21,7 +21,7 @@ describe('Capitalize String (capitalize)', () => {
     batch([
       [' salt in the wounds', ' salt in the wounds'],
       ['1 2 3 4, high 5!', '1 2 3 4, high 5!'],
-      ['_internal', '_internal']
+      ['_internal', '_internal'],
     ])
   })
 })

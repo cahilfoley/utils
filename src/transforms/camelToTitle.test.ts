@@ -20,7 +20,7 @@ describe('Camel Case to Title Case (camelToTitle)', () => {
       batch([
         ['testAFunction', 'Test a Function'],
         ['giveAnAnswer', 'Give an Answer'],
-        ['dropTheBase', 'Drop the Base']
+        ['dropTheBase', 'Drop the Base'],
       ])
     })
 
@@ -28,7 +28,7 @@ describe('Camel Case to Title Case (camelToTitle)', () => {
       batch([
         ['neitherHereNorThere', 'Neither Here nor There'],
         ['shakeAndStir', 'Shake and Stir'],
-        ['functionsForEverybody', 'Functions for Everybody']
+        ['functionsForEverybody', 'Functions for Everybody'],
       ])
     })
 
@@ -36,7 +36,7 @@ describe('Camel Case to Title Case (camelToTitle)', () => {
       batch([
         ['capitalizationForYou', 'Capitalization for You'],
         ['soundsOfLifeOutside', 'Sounds of Life Outside'],
-        ['fromDuskTillDawn', 'From Dusk till Dawn']
+        ['fromDuskTillDawn', 'From Dusk till Dawn'],
       ])
     })
 
@@ -44,7 +44,7 @@ describe('Camel Case to Title Case (camelToTitle)', () => {
       batch([
         ['saltInTheWounds', 'Salt in the Wounds'],
         ['flyOverAnOcean', 'Fly over an Ocean'],
-        ['codingLikeAnAbsoluteBoss', 'Coding like an Absolute Boss']
+        ['codingLikeAnAbsoluteBoss', 'Coding like an Absolute Boss'],
       ])
     })
   })

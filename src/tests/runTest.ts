@@ -15,7 +15,7 @@
 export default function runTest(
   testCase: [any, any],
   func: (...args: any[]) => any,
-  testVerb: string = 'toBe'
+  testVerb: string = 'toBe',
 ): void {
   const [rawInputs, output] = testCase
 
@@ -28,7 +28,7 @@ export default function runTest(
       'toThrow',
       'toThrowError',
       'toThrowErrorMatchingSnapshot',
-      'toThrowErrorMatchingInlineSnapshot'
+      'toThrowErrorMatchingInlineSnapshot',
     ].includes(testVerb)
   ) {
     const testFunc = func

@@ -37,7 +37,7 @@ export default function noramlizeURL(...urlParts: string[]): string {
 
     if (typeof section !== 'string') {
       throw new TypeError(
-        `URL must be a string. Received ${section} as argument index ${i} which is type ${typeof section}`
+        `URL must be a string. Received ${section} as argument index ${i} which is type ${typeof section}`,
       )
     }
 

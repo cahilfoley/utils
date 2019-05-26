@@ -9,7 +9,7 @@ describe('Batch Test (batchTest)', () => {
   // Run the test cases in batch with a mock test runner
   const mockRunner = jest.fn().mockName('mockTestRunner')
   batchTest(mockFunction, cases, {
-    runner: mockRunner
+    runner: mockRunner,
   })
 
   describe('The runner is called for every test case', () => {
@@ -42,7 +42,7 @@ describe('Batch Test (batchTest)', () => {
         const mockVerbRunner = jest.fn().mockName('mockVerbTestRunner')
         batchTest(mockFunction, [['in', 'out']], {
           runner: mockVerbRunner,
-          verb: 'toThrow'
+          verb: 'toThrow',
         })
 
         expect(mockVerbRunner).toBeCalledWith(['in', 'out'], mockFunction, 'toThrow')

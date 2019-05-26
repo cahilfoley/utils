@@ -1,6 +1,6 @@
 import fs from 'fs-extra'
 import path from 'path'
-import pick from 'lodash/pick'
+import pick from '../src/accessors/pick'
 
 // Folders used
 const distDir = path.join(process.cwd(), 'dist')
@@ -21,7 +21,7 @@ const packageInfo = pick(require(path.join(process.cwd(), 'package.json')), [
   'name',
   'peerDependencies',
   'typings',
-  'version'
+  'version',
 ])
 
 async function copyAssets() {
@@ -30,7 +30,7 @@ async function copyAssets() {
     fs.writeJSON(path.join(distDir, 'package.json'), packageInfo, { spaces: 2 }),
 
     // Copy the generated README file
-    fs.copySync(path.join(tempDir, 'readme'), path.join(distDir))
+    fs.copy(path.join(tempDir, 'readme'), path.join(distDir)),
   ]
 
   // Wait until done

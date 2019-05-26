@@ -29,7 +29,7 @@ describe('Create Partial Function (partial)', () => {
     expect(partial(getTypes)(...testArgs)).toEqual(types)
     expect(partial(getTypes, ...[...testArgs].reverse())(...testArgs)).toEqual([
       ...[...types].reverse(),
-      ...types
+      ...types,
     ])
   })
 
@@ -40,7 +40,7 @@ describe('Create Partial Function (partial)', () => {
     expect(partial(getValues)(...testArgs)).toEqual(testArgs)
     expect(partial(getValues, ...[...testArgs].reverse())(...testArgs)).toEqual([
       ...[...testArgs].reverse(),
-      ...testArgs
+      ...testArgs,
     ])
   })
 })

@@ -11,13 +11,13 @@ describe('Normalize URL (normalizeURL)', () => {
       [['https://www.google.com/', '/images'], 'https://www.google.com/images'],
       [
         ['https://www.some.site/', '/a/', '/slashy/', '/path/'],
-        'https://www.some.site/a/slashy/path/'
+        'https://www.some.site/a/slashy/path/',
       ],
       [
         ['https://www.stupid.slashes/////', '/foo/bar////', '/////baz/////'],
-        'https://www.stupid.slashes/foo/bar/baz/'
+        'https://www.stupid.slashes/foo/bar/baz/',
       ],
-      [['https://www.google.com/', '/images'], 'https://www.google.com/images']
+      [['https://www.google.com/', '/images'], 'https://www.google.com/images'],
     ])
   })
 
@@ -30,10 +30,10 @@ describe('Normalize URL (normalizeURL)', () => {
             'file://server/shared-drive',
             'file:///server/shared-drive',
             'file:////server/shared-drive',
-            ['file:', 'server/shared-drive']
+            ['file:', 'server/shared-drive'],
           ],
-          'file:///server/shared-drive'
-        )
+          'file:///server/shared-drive',
+        ),
       )
     })
 
@@ -42,7 +42,7 @@ describe('Normalize URL (normalizeURL)', () => {
         ['https:/fake.com', 'https://fake.com'],
         ['http://fake.com', 'http://fake.com'],
         ['ftp:///test.co/', 'ftp://test.co/'],
-        ['ws:////server.io/socket-io', 'ws://server.io/socket-io']
+        ['ws:////server.io/socket-io', 'ws://server.io/socket-io'],
       ])
     })
   })
@@ -56,13 +56,13 @@ describe('Normalize URL (normalizeURL)', () => {
             'file://server/',
             () => {
               /* something very nefarious */
-            }
+            },
           ],
-          ['ssl://192.168.1.20/', { path: '/remote-admin' }]
+          ['ssl://192.168.1.20/', { path: '/remote-admin' }],
         ],
-        TypeError
+        TypeError,
       ),
-      { verb: 'toThrow' }
+      { verb: 'toThrow' },
     )
   })
 
@@ -71,7 +71,7 @@ describe('Normalize URL (normalizeURL)', () => {
       [['https:/fake.com', ''], 'https://fake.com'],
       [['http://fake.com', 'users', ''], 'http://fake.com/users'],
       [['', 'ftp://test.co/'], 'ftp://test.co/'],
-      [['ws:////server.io', '', 'socket-io'], 'ws://server.io/socket-io']
+      [['ws:////server.io', '', 'socket-io'], 'ws://server.io/socket-io'],
     ])
   })
 
@@ -79,7 +79,7 @@ describe('Normalize URL (normalizeURL)', () => {
     batch([
       ['http://some.api/users/?userID=5', 'http://some.api/users?userID=5'],
       ['api/users/?userID=5&filter=foo', 'api/users?userID=5&filter=foo'],
-      [['http://supernet.dev', '/?apiKey=1234'], 'http://supernet.dev?apiKey=1234']
+      [['http://supernet.dev', '/?apiKey=1234'], 'http://supernet.dev?apiKey=1234'],
     ])
   })
 
@@ -88,8 +88,8 @@ describe('Normalize URL (normalizeURL)', () => {
       ['http://some.api/users?userID=5?filter=foo', 'http://some.api/users?userID=5&filter=foo'],
       [
         ['http://supernet.dev', '?apiKey=1234', '?filter=foo'],
-        'http://supernet.dev?apiKey=1234&filter=foo'
-      ]
+        'http://supernet.dev?apiKey=1234&filter=foo',
+      ],
     ])
   })
 })

@@ -56,7 +56,7 @@ export const all: string[] = [
   'via',
   'with',
   'within',
-  'without'
+  'without',
 ]
 
 /**

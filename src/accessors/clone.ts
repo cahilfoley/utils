@@ -5,7 +5,7 @@
  * @category accessors
  *
  */
-export interface ICloneOptions {
+export type CloneOptions = {
   /** Flag to specify that functions should be copied by reference rather than converted to empty objects */
   copyFunctions?: boolean
 }
@@ -22,8 +22,8 @@ export interface ICloneOptions {
  * @category accessors
  *
  */
-export function clone<T>(original: T, options?: ICloneOptions): T
-export function clone(original: any, options: ICloneOptions = {}): any {
+export function clone<T>(original: T, options?: CloneOptions): T
+export function clone(original: any, options: CloneOptions = {}): any {
   // Can't clone functions, only copy if the flag is set
   if (typeof original === 'function') {
     return options.copyFunctions ? original : {}

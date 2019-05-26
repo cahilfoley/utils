@@ -19,7 +19,7 @@ const { push } = Array.prototype
  */
 export default function flatMap<TValue, TNext>(
   array: Array<TValue>,
-  fn: (value: TValue, index: number) => Array<TNext>
+  fn: (value: TValue, index?: number) => Array<TNext>,
 ): Array<TNext> {
   const output: Array<TNext> = []
 
@@ -30,7 +30,7 @@ export default function flatMap<TValue, TNext>(
       push.apply(output, result)
     } else if (result !== null && result !== undefined) {
       throw new TypeError(
-        `flatMapArray: Callback must return an array or null, received "${result}" instead`
+        `flatMapArray: Callback must return an array or null, received "${result}" instead`,
       )
     }
   }

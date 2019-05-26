@@ -21,7 +21,7 @@ describe('Properly Formatted List (toProperList)', () => {
     batch([
       [['apples', 'pears', 'bananas'], 'apples, pears and bananas'],
       [['apples', 'pears', 'bananas', 'grape'], 'apples, pears, bananas and grape'],
-      [['apples', 'pears', 'bananas', 'grape', 'lemon'], 'apples, pears, bananas, grape and lemon']
+      [['apples', 'pears', 'bananas', 'grape', 'lemon'], 'apples, pears, bananas, grape and lemon'],
     ])
   })
 
@@ -31,8 +31,8 @@ describe('Properly Formatted List (toProperList)', () => {
       [[['apples', 'pears', 'bananas', 'grape']], 'apples, pears, bananas and grape'],
       [
         [['apples', 'pears', 'bananas', 'grape', 'lemon']],
-        'apples, pears, bananas, grape and lemon'
-      ]
+        'apples, pears, bananas, grape and lemon',
+      ],
     ])
   })
 })

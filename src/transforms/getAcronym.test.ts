@@ -21,7 +21,7 @@ describe('Get Acronym (getAcronym)', () => {
         ['Empire Strikes Back', 'ESB'],
         ['Smooth as ice', 'SAI'],
         ['Cahil.Foley', 'CF'],
-        ['Test_of_Underscores', 'TOU']
+        ['Test_of_Underscores', 'TOU'],
       ])
     })
 
@@ -35,14 +35,14 @@ describe('Get Acronym (getAcronym)', () => {
       batch([
         ['The Empire Strikes Back', 'ESB'],
         ['Sounds of Life Outside', 'SLO'],
-        ['Smooth as ice, but longer', 'SIL']
+        ['Smooth as ice, but longer', 'SIL'],
       ])
     })
 
     test('If there are more than 3 important words use the first 3', () => {
       batch([
         ['The Empire Strikes Back... Again', 'ESB'],
-        ['Understanding What to Capitalize in a Title', 'UWC']
+        ['Understanding What to Capitalize in a Title', 'UWC'],
       ])
     })
 

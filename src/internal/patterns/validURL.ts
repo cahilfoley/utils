@@ -8,9 +8,9 @@ const urlRegex: RegExp = new RegExp(
     '(\\:\\d+)?', // Optional port
     '(\\/[-a-z\\d%_.~+]*)*', // Path
     '(\\?[;&a-z\\d%_.~+=\\-/]*)?', // Optional query string
-    '(\\#[-a-z\\d_]*)?$' // Optional anchor hash
+    '(\\#[-a-z\\d_]*)?$', // Optional anchor hash
   ].join(''),
-  'i'
+  'i',
 )
 
 export default urlRegex
