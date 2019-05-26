@@ -1,0 +1,22 @@
+---
+engines:
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+  eslint:
+    enabled: true
+    channel: 'eslint-5'
+  fixme:
+    enabled: true
+ratings:
+  paths:
+    - '**.ts'
+exclude_paths:
+  - '.temp/'
+  - 'config/'
+  - 'dist/'
+  - 'doc-themes/'
+  - 'scripts/'
+  - '**/*.test.ts'
+  - '**/node_modules/'
