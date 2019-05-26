@@ -28,7 +28,7 @@
     "type-check": "tsc --noEmit",
     "build:amd": "tsc -p config/amd.tsconfig.json",
     "build:cjs:types": "tsc -p config/cjs.tsconfig.json --emitDeclarationOnly",
-    "build:cjs": "npm run build:cjs:types && babel .temp/src -d dist -x \".ts,.tsx\" -p config/cjs.tsconfig.json --ignore .temp/src/**/*.test.ts",
+    "build:cjs": "npm run build:cjs:types && babel .temp/src -d dist -x \".ts,.tsx\" -i -p config/cjs.tsconfig.json --ignore .temp/src/**/*.test.ts",
     "build:es": "tsc -p config/es.tsconfig.json",
     "build:docs": "typedoc --options config/typedoc.json src/",
     "build:docsjson": "typedoc --options config/typedoc-json.json src/",
