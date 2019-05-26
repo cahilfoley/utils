@@ -8,8 +8,7 @@
   "typings": "index.d.ts",
   "homepage": "https://cahilfoley.github.io/utils/",
   "bugs": {
-    "url": "https://github.com/cahilfoley/utils/issues",
-    "email": "cahil.npm@gmail.com"
+    "url": "https://github.com/cahilfoley/utils/issues"
   },
   "keywords": [
     "utils",
@@ -25,7 +24,7 @@
     "url": "https://github.com/cahilfoley/utils.git"
   },
   "scripts": {
-    "lint": "tslint --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "type-check": "tsc --noEmit",
     "build:amd": "tsc -p config/amd.tsconfig.json",
     "build:cjs:types": "tsc -p config/cjs.tsconfig.json --emitDeclarationOnly",
@@ -58,22 +57,26 @@
     "@types/jest": "^24.0.11",
     "@types/lodash": "^4.14.123",
     "@types/node": "^12.0.0",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.7.1",
     "colors": "^1.3.3",
     "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "fs-extra": "^8.0.0",
     "husky": "^2.0.0",
     "jest": "^24.7.1",
     "lodash": "^4.17.11",
     "npm-run-all": "^4.1.5",
-    "prettier": "^1.16.4",
-    "pretty-quick": "^1.10.0",
+    "prettier": "^1.17.1",
+    "pretty-quick": "^1.11.0",
     "rimraf": "^2.6.3",
     "shelljs": "^0.8.3",
     "standard-version": "^6.0.1",
     "ts-jest": "^24.0.2",
-    "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.14.2",
