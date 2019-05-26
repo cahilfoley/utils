@@ -1,3 +1,5 @@
+import arrayAccessor from '../internal/patterns/arrayAccessor'
+
 /**
  *
  * Gets the value at path of object. If the resolved value is undefined, the defaultValue is returned in its place.
@@ -12,7 +14,9 @@
  */
 export default function get(object: object, path: string[] | string, defaultValue?: any): any {
   // If the path was a string, split it by periods
-  path = typeof path === 'string' ? path.split('.') : path
+  if (typeof path === 'string') {
+    path = path.replace(arrayAccessor, '.$1').split('.')
+  }
 
   // Next key to access
   const next = path.shift()
@@ -24,10 +28,10 @@ export default function get(object: object, path: string[] | string, defaultValu
       return defaultValue
     }
 
-    // Call set recursively with the next section of the path
+    // Call get recursively with the next section of the path
     return get(object[next], path, defaultValue)
   } else {
     // Up to the last section of the path, get the value now
-    return object[next]
+    return object[next] || defaultValue
   }
 }
