@@ -1,3 +1,9 @@
+function normalizeProtocolSlashes(url: string) {
+  // There must be two or three slashes in the file protocol, two slashes in anything else.
+  const isFile = url.match(/^file:\/+/)
+  return url.replace(/^([^/:]+):\/*/, isFile ? '$1:///' : '$1://')
+}
+
 /**
  *
  * Sanitises and safely joins sections of a URL, this includes removing duplicate slashes in the path and
@@ -8,7 +14,8 @@
  *
  * @category transforms
  *
- * @example const url = normalizeURL('https://cahilfoley.github.io/', '/utils') // => 'https://cahilfoley.github.io/utils'
+ * @example
+ * const url = normalizeURL('https://cahilfoley.github.io/', '/utils') // => 'https://cahilfoley.github.io/utils'
  *
  */
 export default function noramlizeURL(...urlParts: string[]): string {
@@ -24,13 +31,10 @@ export default function noramlizeURL(...urlParts: string[]): string {
     // Strip any colon or slashes from the protocol
     const protocol = urlParts.shift().replace(/:\/*/, '')
     // Join with two slashes, next section will convert to 3 for file protocol if needed
-    urlParts[0] = `${protocol}://` + urlParts[0]
+    urlParts[0] = `${protocol}://${urlParts[0]}`
   }
 
-  // There must be two or three slashes in the file protocol, two slashes in anything else.
-  urlParts[0] = urlParts[0].match(/^file:\/+/)
-    ? urlParts[0].replace(/^([^/:]+):\/*/, '$1:///')
-    : urlParts[0].replace(/^([^/:]+):\/*/, '$1://')
+  urlParts[0] = normalizeProtocolSlashes(urlParts[0])
 
   for (let i = 0; i < urlParts.length; i++) {
     let section = urlParts[i]
@@ -41,34 +45,23 @@ export default function noramlizeURL(...urlParts: string[]): string {
       )
     }
 
-    if (section === '') {
-      continue
-    }
+    // Skip empty sections
+    if (section === '') continue
 
-    if (i > 0) {
-      // Removing the starting slashes for each component but the first.
-      section = section.replace(/^[/]+/, '')
-    }
+    // Removing the starting slashes for each component but the first.
+    if (i > 0) section = section.replace(/^[/]+/, '')
 
     // Removing the ending slashes for each component but the last.
-    section =
-      i < urlParts.length - 1
-        ? section.replace(/[/]+$/, '')
-        : // For the last component we will combine multiple slashes to a single one.
-          section.replace(/[/]+$/, '/')
+    section = section.replace(/[/]+$/, i < urlParts.length - 1 ? '' : '/')
 
     resultArray.push(section)
   }
 
-  let str = resultArray.join('/')
   // Each input component is now separated by a single slash except the possible first plain protocol part.
-
   // Remove trailing slash before parameters or hash
-  str = str.replace(/\/(\?|&|#[^!])/g, '$1')
+  const str = resultArray.join('/').replace(/\/(\?|&|#[^!])/g, '$1')
 
   // replace ? in parameters with &
   const parts = str.split('?')
-  str = parts.shift() + (parts.length > 0 ? '?' : '') + parts.join('&')
-
-  return str
+  return parts.shift() + (parts.length > 0 ? '?' : '') + parts.join('&')
 }

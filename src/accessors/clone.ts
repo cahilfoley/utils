@@ -24,36 +24,28 @@ export type CloneOptions = {
  */
 export function clone<T>(original: T, options?: CloneOptions): T
 export function clone(original: any, options: CloneOptions = {}): any {
+  let output
+
   // Can't clone functions, only copy if the flag is set
-  if (typeof original === 'function') {
-    return options.copyFunctions ? original : {}
-  }
-
+  if (typeof original === 'function') output = options.copyFunctions ? original : {}
   // Nulls will be caught as objects later so return them now
-  if (original === null) {
-    return null
-  }
-
+  else if (original === null) output = null
   // If the input is a date, create a new one with the same value
-  if (original instanceof Date) {
-    return new Date(original.valueOf())
-  }
-
+  else if (original instanceof Date) output = new Date(original.valueOf())
   // If the input is an array, clone each item
-  if (Array.isArray(original)) {
-    return original.map(value => clone(value, options))
-  }
-
+  else if (Array.isArray(original)) output = original.map(value => clone(value, options))
   // If the input is an object, clone each value onto a new object
-  if (typeof original === 'object') {
-    const output = {}
+  else if (typeof original === 'object') {
+    output = {}
     for (const [key, value] of Object.entries(original)) {
       output[key] = clone(value, options)
     }
-
-    return output
   }
 
+  // If anything above matched the return the output
+  if (output !== undefined) return output
+
+  // Don't know how to handle this type, just return the original
   return original
 }
 
