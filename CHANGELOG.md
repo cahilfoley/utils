@@ -4,8 +4,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [2.0.0](https://github.com/cahilfoley/utils/compare/v1.3.1...v2.0.0) (2019-05-26)
 
-- feat!(accessors): update get/set methods to allow for arrays to be traversed (#45) ([9207675](https://github.com/cahilfoley/utils/commit/9207675)), closes [#45](https://github.com/cahilfoley/utils/issues/45)
-
 ### Build System
 
 - copy changelog to dist folder ([8974bb8](https://github.com/cahilfoley/utils/commit/8974bb8))
@@ -14,10 +12,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 - **accessors:** add pick function ([ad55229](https://github.com/cahilfoley/utils/commit/ad55229))
 - **flatten:** update flatted type signature to allow for atleast single level nested sub-arrays ([8eb0efc](https://github.com/cahilfoley/utils/commit/8eb0efc))
+- **accessors:** update get/set methods to allow for arrays to be traversed (#45) ([9207675](https://github.com/cahilfoley/utils/commit/9207675)), closes [#45](https://github.com/cahilfoley/utils/issues/45)
 
 ### BREAKING CHANGES
 
-- The get and set methods will new process numeric path accessors as array indicies. This is probably the expected behaviour but wasn't how it previously worked and is therefore a breaking change.
+- The `get` and `set` methods will now process numeric paths as array indicies. This is probably the expected behaviour but wasn't how it previously worked and is therefore a breaking change.
 
 ## [1.3.1](https://github.com/cahilfoley/utils/compare/v1.3.0...v1.3.1) (2019-04-09)
 
