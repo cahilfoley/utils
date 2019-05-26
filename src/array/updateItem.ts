@@ -16,7 +16,7 @@ import get from '../accessors/get'
 export default function updateItem(
   array: object[],
   query: object,
-  updateCallback: (item: any) => any
+  updateCallback: (item: any) => any,
 ): object[] {
   // Loop through all of the items
   const updatedArray = array.map(item => {

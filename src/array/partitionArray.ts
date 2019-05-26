@@ -19,7 +19,7 @@
 export default function partitionArray<T>(
   array: Array<T>,
   predicate: (value: T, index: number, array: Array<T>) => boolean,
-  context?: any
+  context?: any,
 ): [Array<T>, Array<T>] {
   const first = []
   const second = []

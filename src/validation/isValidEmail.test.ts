@@ -14,10 +14,10 @@ describe('Email Validation (isValidEmail)', () => {
           'mace.windu@jedi.council',
           'Doris.Spinka@gmail.com',
           'Brad.Borer51@yahoo.com',
-          'Jovany_Glover32@gmail.com'
+          'Jovany_Glover32@gmail.com',
         ],
-        true
-      )
+        true,
+      ),
     )
   })
 
@@ -29,10 +29,10 @@ describe('Email Validation (isValidEmail)', () => {
           'mace.windu@jedicouncil',
           'holy.moly@two.at.signs@co.uk',
           'no spaces@gmail.com',
-          ' what __ !_@+# '
+          ' what __ !_@+# ',
         ],
-        false
-      )
+        false,
+      ),
     )
   })
 

@@ -33,7 +33,7 @@ export interface IBatchTestOptions {
 export default function batchTest(
   func: (...args: any[]) => any,
   cases: any[][],
-  { verb, runner }: IBatchTestOptions = {}
+  { verb, runner }: IBatchTestOptions = {},
 ): void {
   // Use custom runner if provided
   const actualRunner = runner ? runner : runTest

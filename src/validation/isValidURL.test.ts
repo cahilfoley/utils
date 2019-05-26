@@ -15,10 +15,10 @@ describe('URL Validation (isValidURL)', () => {
           'http://www.google.com',
           'http://lorempixel.com/640/480/technics',
           'https://s3.amazonaws.com/uifaces/faces/twitter/besbujupi/128.jpg',
-          'https://localhost/home'
+          'https://localhost/home',
         ],
-        true
-      )
+        true,
+      ),
     )
   })
 
@@ -30,10 +30,10 @@ describe('URL Validation (isValidURL)', () => {
           'herpa://derpa.com.au',
           'https://///slash-city.com////free//slashes',
           'no spaces.com',
-          ' what __ !_@+# '
+          ' what __ !_@+# ',
         ],
-        false
-      )
+        false,
+      ),
     )
   })
 })
