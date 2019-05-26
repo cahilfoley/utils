@@ -4,7 +4,15 @@ node_js:
   - '10'
 notifications:
   email: false
-script: tsc --noEmit && jest --coverage --coverageReporters=text-lcov | coveralls
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script: tsc --noEmit && jest
+after_script:
+  - cat .temp/coverage/lcov.info | coveralls
+  - ./cc-test-reporter format-coverage -t lcov -o .temp/coverage/codeclimate.json .temp/coverage/lcov.info
+  - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage --input .temp/coverage/codeclimate.json; fi
 before_deploy: npm run build && cd dist && npm pack
 deploy:
   provider: npm
