@@ -55,6 +55,14 @@ jobs:
 
     - name: Deploy docs
       node_js: 12
-      script:
+      script: skip
+      before_deploy:
         - npm run build:docs
-        - npm run deploy:docs
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GH_TOKEN
+        keep_history: true
+        local_dir: docs
+        on:
+          repo: cahilfoley/utils
