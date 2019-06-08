@@ -1,27 +1,37 @@
 cache: npm
 language: node_js
 node_js:
+  - '12'
   - '10'
-notifications:
-  email: false
+  - '8'
+
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 ./cc-test-reporter
   - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-script: tsc --noEmit && jest
+  - './cc-test-reporter before-build'
+script:
+  - echo "Running tests against node $(node -v)"
+  - tsc --noEmit
+  - jest
 after_script:
   - cat .temp/coverage/lcov.info | coveralls
-  - ./cc-test-reporter format-coverage -t lcov -o .temp/coverage/codeclimate.json .temp/coverage/lcov.info
+  - './cc-test-reporter format-coverage -t lcov -o .temp/coverage/codeclimate.json .temp/coverage/lcov.info'
   - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage --input .temp/coverage/codeclimate.json; fi
-before_deploy: npm run build && cd dist && npm pack
-deploy:
-  provider: npm
-  email: cahil.npm@gmail.com
-  skip_cleanup: true
-  api_key:
-    secure: FkOiV+0dQclArFhtVOISYVECa+mY8g/3rUdvsUgt/b/gzARxTvmaA+8tK57KKG5mw0LvZ7v+jM1J/NpT7otwklWL0ayQTY9Q9fxsooCTEMLU3cvi1G7X80+cGt/4w2jyeTcXmUKbnPQ23HxM0ktIT2DSuZAF6TM2WP0NLJl14YJkndrfeVKqsWsIPd28ZEXIo7U6TRXC7Ehufe4z1USA+lUXv/MBvD0xeAHtpjHLCadu7QVglCh8QM6tnigfZVW1RAnA3PHFhOUooyjNJw1I7o3Qlv3VT5pRvHwN+pFpqV2tz0BDJVueEoWky969jd/SpAsNvG6v8YzxffNYFjctJEUq9Q+KpF5FDAQXcFWWXBo4b1H8zyV/OnLpx5S8dxOXJ4ZXDDfY3Rk0TDANeT6BSVAswoOs+3CN2hgDgecYxzZsO2C3Nrewofj5IX/Z4aFF9Yj1f25F0hnqKhv4ubkg/k55z8bkE3EDm3fOozpUA53yLcqJr8U3JUeGnuedTmVlYib9p5PnCWL9W3JDBMsVcVJjHSPJJWV7g+IeZDN24G3zYYh1zOXRSOXwSQmPbrULyavAKpYifF99GUNzFiwwzcwdIvAC82V0nVmfBr3oOBE3CvunXibaBOvbJgGyk1i6YfWBFUrqTxqAHCRmIKiLrw+vjtMnMKV0rxu9JdJjSQg=
-  on:
-    tags: true
-    repo: cahilfoley/utils
-    branch: master
-after_deploy: cd .. && npm run build:docs && npm run deploy:docs
+
+jobs:
+  include:
+    - stage: deploy
+      name: build
+      script: npm run build
+
+    - name: publish
+      script: echo "Deploying package to npm"
+      node_js: 12
+      deploy:
+        provider: npm
+        email: cahil.npm@gmail.com
+        api_key: $NPM_API_KEY
+        skip_cleanup: true
+        on:
+          tags: true
+          repo: cahilfoley/utils
