@@ -65,6 +65,5 @@ jobs:
         keep_history: true
         local_dir: docs
         on:
-          # tags: true
+          tags: true
           repo: cahilfoley/utils
-          all_branches: true
