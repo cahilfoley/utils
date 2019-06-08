@@ -1,32 +1,49 @@
 cache: npm
 language: node_js
-node_js:
-  - '12'
-  - '10'
-  - '8'
-
-before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - './cc-test-reporter before-build'
-script:
-  - echo "Running tests against node $(node -v)"
-  - tsc --noEmit
-  - jest
-after_script:
-  - cat .temp/coverage/lcov.info | coveralls
-  - './cc-test-reporter format-coverage -t lcov -o .temp/coverage/codeclimate.json .temp/coverage/lcov.info'
-  - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage --input .temp/coverage/codeclimate.json; fi
 
 jobs:
   include:
-    - stage: deploy
-      name: build
-      script: npm run build
+    - stage: test
+      name: 'Node.js: 8'
+      node_js: 8
+      script:
+        - echo "Running tests against node $(node -v)"
+        - tsc --noEmit
+        - jest
 
-    - name: publish
-      script: echo "Deploying package to npm"
+    - stage: test
+      name: 'Node.js: 10'
+      node_js: 10
+      script:
+        - echo "Running tests against node $(node -v)"
+        - tsc --noEmit
+        - jest
+
+    - stage: test
+      name: 'Node.js: 12'
       node_js: 12
+      before_script:
+        - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        - chmod +x ./cc-test-reporter
+        - './cc-test-reporter before-build'
+      script:
+        - echo "Running tests against node $(node -v)"
+        - tsc --noEmit
+        - jest
+      after_script:
+        - cat .temp/coverage/lcov.info | coveralls
+        - './cc-test-reporter format-coverage -t lcov -o .temp/coverage/codeclimate.json .temp/coverage/lcov.info'
+        - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage --input .temp/coverage/codeclimate.json; fi
+
+    - stage: deploy
+      name: Publish NPM package
+      node_js: 12
+      script: skip
+      before_deploy:
+        - npm run build
+        - cd dist
+        - npm pack
+        - echo "Deploying package to npm"
       deploy:
         provider: npm
         email: cahil.npm@gmail.com
@@ -35,3 +52,9 @@ jobs:
         on:
           tags: true
           repo: cahilfoley/utils
+
+    - name: Deploy docs
+      node_js: 12
+      script:
+        - npm run build:docs
+        - npm run deploy:docs
