@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/cahilfoley/utils/compare/v2.0.0...v2.0.1) (2019-06-26)
+
+### Bug Fixes
+
+- **validation:** remove potential regex crash ([1191997](https://github.com/cahilfoley/utils/commit/1191997))
+
+### Build System
+
+- **ci:** Travis CI Build Improvements ([#48](https://github.com/cahilfoley/utils/issues/48)) ([92d42e7](https://github.com/cahilfoley/utils/commit/92d42e7))
+
+### Tests
+
+- **validation:** add catastrophic backtracking test case ([ed7f11e](https://github.com/cahilfoley/utils/commit/ed7f11e))
+
 ## [2.0.0](https://github.com/cahilfoley/utils/compare/v1.3.1...v2.0.0) (2019-05-26)
 
 ### Build System
