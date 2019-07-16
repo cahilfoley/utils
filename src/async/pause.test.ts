@@ -5,6 +5,6 @@ describe('Wait for delay (pause)', () => {
     const delay = 50
     const start = Date.now()
     await pause(delay)
-    expect(Date.now() - start).toBeGreaterThanOrEqual(delay)
+    expect(Date.now() - start).toBeGreaterThanOrEqual(delay - 5) // 5 ms threshold for random CPU variance
   })
 })
