@@ -10,6 +10,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    complexity: [2, 6],
+    complexity: [2, 10],
   },
 }
