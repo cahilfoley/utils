@@ -6,6 +6,7 @@ export interface CancelablePromise<T> extends Promise<T> {
 }
 
 /**
+ *
  * Allows the provided promise to be canceled after starting. This does not stop the promise from executing but will
  * cause it to reject with the value `{ isCanceled: true }` once it finishes, regardless of outcome.
  *
@@ -30,6 +31,9 @@ export interface CancelablePromise<T> extends Promise<T> {
  * cancelablePromise
  *   .then(result => console.log('Cancelable', result)) // Never fires, the promise will not resolve after being cancelled
  *   .catch(err => console.log('Cancelable', err)) // Resolves after 3000ms with the value `{ isCanceled: true }`
+ *
+ * @category async
+ *
  */
 export default function makeCancelable<T>(promise: Promise<T>): CancelablePromise<T> {
   let hasCanceled = false
