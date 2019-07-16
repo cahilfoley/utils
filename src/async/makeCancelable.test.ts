@@ -14,4 +14,14 @@ describe('Cancel promise (makeCancelable)', () => {
     cancelablePromise.cancel()
     await expect(result).rejects.toEqual(canceledError)
   })
+
+  it('should allow errors to bubble up to the cancelable promise', async () => {
+    const error = new Error('Error in bad promise')
+    const badPromise = new Promise((resolve, reject) => setTimeout(() => reject(error), 50))
+
+    const cancelablePromise = makeCancelable(badPromise)
+    const result = cancelablePromise.then(() => 'resolved')
+
+    await expect(result).rejects.toEqual(error)
+  })
 })
