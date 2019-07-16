@@ -1,5 +1,6 @@
 export * from './accessors'
 export * from './array'
+export * from './async'
 export * from './function'
 export * from './tests'
 export * from './transforms'

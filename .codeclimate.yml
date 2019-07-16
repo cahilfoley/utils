@@ -9,6 +9,13 @@ engines:
     channel: 'eslint-5'
   fixme:
     enabled: true
+checks:
+  method-complexity:
+    config:
+      threshold: 10
+  return-statements:
+    config:
+      threshold: 6
 ratings:
   paths:
     - '**.ts'
