@@ -7,9 +7,18 @@
  * @param ms The number of ms to pause for
  * @return The executing promise
  *
+ * @example
+ * async function run() {
+ *   console.log('first log')
+ *   await pause(500)
+ *   
+ *   // Will run 500 milliseconds after the first
+ *   console.log('second log')
+ * }
+ * 
  * @category async
  *
  */
-export default function wait(ms: number) {
+export default function pause(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
