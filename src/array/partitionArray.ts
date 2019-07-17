@@ -1,4 +1,8 @@
 /**
+ * @module array
+ */
+
+/**
  *
  * Partitions an array using a provided predicate function. All elements satisfying the predicate are part of the first returned array,
  * and all elements that don't are in the second.
@@ -8,8 +12,6 @@
  * otherwise they are returned in the second array
  * @param contect The context to call the predicate function in
  * @return Two arrays, the first containing all items that satisfied the predicate, the second containing the rest
- *
- * @category array
  *
  * @example
  * partitionArray([1, 2, 3, 4], x => x % 2)

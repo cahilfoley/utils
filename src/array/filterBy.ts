@@ -1,3 +1,7 @@
+/**
+ * @module array
+ */
+
 import get from '../accessors/get'
 
 /**
@@ -8,8 +12,6 @@ import get from '../accessors/get'
  * @param path The path of the property to filter
  * @param value The value of the property to filter
  * @return Array filtered according to property and past value
- *
- * @category array
  *
  */
 export default function filterBy(array: object[], path: string | string[], value: any): object[] {

@@ -1,3 +1,7 @@
+/**
+ * @module transforms
+ */
+
 import titleExceptions from '../internal/wordLists/titleExceptions'
 
 /**
@@ -9,9 +13,8 @@ import titleExceptions from '../internal/wordLists/titleExceptions'
  * @param title The string to convert to an acronym
  * @return Returns the acronym string
  *
- * @category transforms
- *
- * @example const acronym = getAcronym('Empire Strikes Back') // => 'ESB'
+ * @example
+ * const acronym = getAcronym('Empire Strikes Back') // => 'ESB'
  *
  */
 export default function getAcronym(title: string): string {

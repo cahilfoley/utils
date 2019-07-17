@@ -1,9 +1,9 @@
 /**
- *
+ * @module accessors
+ */
+
+/**
  * Options to modify the behaviour of the clone function
- *
- * @category accessors
- *
  */
 export type CloneOptions = {
   /** Flag to specify that functions should be copied by reference rather than converted to empty objects */
@@ -18,8 +18,6 @@ export type CloneOptions = {
  * @param original The value to clone
  * @param options Config options
  * @return Returns the deep cloned value
- *
- * @category accessors
  *
  */
 export function clone<T>(original: T, options?: CloneOptions): T

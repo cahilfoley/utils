@@ -1,3 +1,7 @@
+/**
+ * @module accessors
+ */
+
 import arrayAccessor from '../internal/patterns/arrayAccessor'
 
 /**
@@ -8,8 +12,6 @@ import arrayAccessor from '../internal/patterns/arrayAccessor'
  * @param path The path of the property to get
  * @param defaultValue The value returned for undefined resolved values
  * @return The value if it exists, if not then either the default value is returned or undefined
- *
- * @category accessors
  *
  */
 export default function get(object: object, path: string[] | string, defaultValue?: any): any {

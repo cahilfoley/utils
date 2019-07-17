@@ -1,3 +1,11 @@
+/**
+ * @module transforms
+ */
+
+/**
+ * Normalizes the number of slashes in the protocol section of a url
+ * @private
+ */
 function normalizeProtocolSlashes(url: string) {
   // There must be two or three slashes in the file protocol, two slashes in anything else.
   const isFile = url.match(/^file:\/+/)
@@ -11,8 +19,6 @@ function normalizeProtocolSlashes(url: string) {
  *
  * @param urlParts The URL parts to be joined and normalized
  * @return Returns the joined and normalized URL parts as a string
- *
- * @category transforms
  *
  * @example
  * const url = normalizeURL('https://cahilfoley.github.io/', '/utils') // => 'https://cahilfoley.github.io/utils'

@@ -1,10 +1,8 @@
 {
   "name": "@cahil/utils",
   "module": "es",
-  "mode": "file",
   "target": "esnext",
   "exclude": ["**/*.test.ts", "**/internal/**/*.ts"],
-  "theme": "./doc-themes/minimal",
   "out": "docs/",
   "excludeExternals": true
 }
