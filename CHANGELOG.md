@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.2](https://github.com/cahilfoley/utils/compare/v2.1.0...v2.1.2) (2019-07-17)
+
+### Build System
+
+- **deps:** bump lodash.template from 4.4.0 to 4.5.0 ([#62](https://github.com/cahilfoley/utils/issues/62)) ([19a93f0](https://github.com/cahilfoley/utils/commit/19a93f0))
+
 ## [2.1.0](https://github.com/cahilfoley/utils/compare/v2.0.1...v2.1.0) (2019-07-16)
 
 ### Features
