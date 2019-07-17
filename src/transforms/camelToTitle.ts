@@ -1,3 +1,7 @@
+/**
+ * @module transforms
+ */
+
 import splitCamelCase from '../internal/patterns/splitCamelCase'
 import titleExceptions from '../internal/wordLists/titleExceptions'
 import capitalize from './capitalize'
@@ -22,9 +26,8 @@ import capitalize from './capitalize'
  * @param input The camel-case string to be converted
  * @return Returns the transformed title case string
  *
- * @category transforms
- *
- * @example camelToTitle('iLoveCamels') // => 'I Love Camels'
+ * @example
+ * camelToTitle('iLoveCamels') // => 'I Love Camels'
  *
  */
 export default function camelToTitle(input: string): string {

@@ -1,3 +1,7 @@
+/**
+ * @module validation
+ */
+
 import validURL from '../internal/patterns/validURL'
 
 /**
@@ -8,9 +12,8 @@ import validURL from '../internal/patterns/validURL'
  * @param text The text to validate
  * @return Returns true if the input is a valid URL otherwise returns false
  *
- * @category validation
- *
- * @example const valid = isValidURL('http://www.google.com') // returns true
+ * @example
+ * const valid = isValidURL('http://www.google.com') // returns true
  *
  */
 export default function isValidURL(text: string): boolean {

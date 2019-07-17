@@ -1,3 +1,7 @@
+/**
+ * @module array
+ */
+
 import get from '../accessors/get'
 
 /**
@@ -9,8 +13,6 @@ import get from '../accessors/get'
  * the paths are used in the get function
  * @param updateCallback A callback used to update the item
  * @return The array with the updated item
- *
- * @category array
  *
  */
 export default function updateItem(

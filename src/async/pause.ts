@@ -1,4 +1,8 @@
 /**
+ * @module async
+ */
+
+/**
  *
  * Creates a promise that resolves in the provided number of milliseconds.
  *
@@ -11,12 +15,10 @@
  * async function run() {
  *   console.log('first log')
  *   await pause(500)
- *   
+ *
  *   // Will run 500 milliseconds after the first
  *   console.log('second log')
  * }
- * 
- * @category async
  *
  */
 export default function pause(ms: number) {

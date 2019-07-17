@@ -1,3 +1,7 @@
+/**
+ * @module accessors
+ */
+
 import flatten from '../array/flatten'
 
 /**
@@ -6,8 +10,6 @@ import flatten from '../array/flatten'
  *
  * @param object The base object that properties will be picked from
  * @param keys The keys to pick
- *
- * @category accessors
  *
  * @example
  * const original = { foo: 'hello', bar: 'world', baz: false, something: [1, 2, 3] }

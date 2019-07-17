@@ -1,11 +1,13 @@
 /**
+ * @module function
+ */
+
+/**
  *
  * Creates a function that invokes `func` with `partials` prepended to the arguments it receives.
  *
  * @param func The function to partially apply arguments to
  * @param argsBound The arguments to be partially applied
- *
- * @category function
  *
  * @example
  * const addNums = (a, b, c) => a + b + c

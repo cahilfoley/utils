@@ -1,3 +1,7 @@
+/**
+ * @module validation
+ */
+
 import emailPattern from '../internal/patterns/emailAddress'
 
 /**
@@ -7,9 +11,8 @@ import emailPattern from '../internal/patterns/emailAddress'
  * @param text The text to
  * @return Returns true if the input is a valid email address otherwise returns false
  *
- * @category validation
- *
- * @example isValidEmail(`no spaces@sham.co`) // => false
+ * @example
+ * isValidEmail(`no spaces@sham.co`) // => false
  *
  */
 export default function isValidEmail(text: string): boolean {

@@ -1,3 +1,7 @@
+/**
+ * @module accessors
+ */
+
 import arrayAccessor from '../internal/patterns/arrayAccessor'
 
 /**
@@ -8,8 +12,6 @@ import arrayAccessor from '../internal/patterns/arrayAccessor'
  * @param object The object to modify
  * @param path The path of the property to set
  * @param value The value to set
- *
- * @category accessors
  *
  */
 export default function set(

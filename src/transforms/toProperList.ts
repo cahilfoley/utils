@@ -1,13 +1,16 @@
 /**
+ * @module transforms
+ */
+
+/**
  *
  * Joins together several strings or numbers in a properly formatted English list. The last two items are seperated by the word
  * 'and' and the remaining items are seperated by a comma and space.
  *
  * @param items Array of strings
  *
- * @category transforms
- *
- * @example const itemsString = toProperList(['apples', 'pears', 'bananas']) // => 'apples, pears and bananas'
+ * @example
+ * const itemsString = toProperList(['apples', 'pears', 'bananas']) // => 'apples, pears and bananas'
  *
  */
 export function toProperList(items: string[]): string

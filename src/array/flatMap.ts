@@ -1,3 +1,7 @@
+/**
+ * @module array
+ */
+
 const { push } = Array.prototype
 
 /**
@@ -9,8 +13,6 @@ const { push } = Array.prototype
  * @param array The input array to be mapped
  * @param fn The functions used to generate the new items
  * @return A flat array of the resulting values
- *
- * @category array
  *
  * @example
  * const items = flatMap(['foo', 'bar'], word => word.split())

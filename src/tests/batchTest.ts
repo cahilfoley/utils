@@ -1,11 +1,11 @@
+/**
+ * @module tests
+ */
+
 import runTest from './runTest'
 
 /**
- *
  * Options to customize the behaviour of the batchTest function
- *
- * @category tests
- *
  */
 export interface IBatchTestOptions {
   /** The jest `expected` verb to use when running the test */
@@ -25,9 +25,8 @@ export interface IBatchTestOptions {
  * @param cases An array of test case tuples (inputs and expected outputs)
  * @param options Configuration options
  *
- * @category tests
- *
- * @example batchTest(double, [[2, 4], [5, 10]])
+ * @example
+ * batchTest(double, [[2, 4], [5, 10]])
  *
  */
 export default function batchTest(
