@@ -26,7 +26,10 @@ export interface IBatchTestOptions {
  * @param options Configuration options
  *
  * @example
+ * ```typescript
+ *
  * batchTest(double, [[2, 4], [5, 10]])
+ * ```
  *
  */
 export default function batchTest(

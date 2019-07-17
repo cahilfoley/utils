@@ -11,7 +11,10 @@
  * @return Returns the array of test cases
  *
  * @example
+ * ```typescript
+ *
  * const evenTests = [...buildCaseArray([2, 4, 6], true), ...buildCaseArray([1, 3, 5], false)]
+ * ```
  *
  */
 export default function buildCaseArray(testInputs: any[], output: any): any[][] {

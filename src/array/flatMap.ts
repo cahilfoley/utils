@@ -15,8 +15,11 @@ const { push } = Array.prototype
  * @return A flat array of the resulting values
  *
  * @example
+ * ```typescript
+ *
  * const items = flatMap(['foo', 'bar'], word => word.split())
  * // Returns ['f', 'o', 'o', 'b', 'a', 'r']
+ * ```
  *
  */
 export default function flatMap<TValue, TNext>(

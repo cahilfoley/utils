@@ -12,11 +12,14 @@ import flatten from '../array/flatten'
  * @param keys The keys to pick
  *
  * @example
+ * ```typescript
+ *
  * const original = { foo: 'hello', bar: 'world', baz: false, something: [1, 2, 3] }
  * const picked = pick(original, 'foo', 'something')
  *
  * console.log(picked) // { foo: 'hello', something: [1, 2, 3] }
  * console.log(Object.keys(picked)) // ['foo', 'something']
+ * ```
  *
  */
 export default function pick<T extends Record<string, any>, U extends keyof T>(

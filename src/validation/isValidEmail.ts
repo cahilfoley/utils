@@ -12,7 +12,10 @@ import emailPattern from '../internal/patterns/emailAddress'
  * @return Returns true if the input is a valid email address otherwise returns false
  *
  * @example
+ * ```typescript
+ *
  * isValidEmail(`no spaces@sham.co`) // => false
+ * ```
  *
  */
 export default function isValidEmail(text: string): boolean {

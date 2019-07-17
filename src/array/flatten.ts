@@ -12,8 +12,11 @@
  * @return The flattened array.
  *
  * @example
+ * ```typescript
+ *
  * flatten<number>([1, [2, 3], 4, [5, [6, 7] ], 8])
  * // Expected output: [1, 2, 3, 4, 5, 6, 7, 8]
+ * ```
  *
  */
 export default function flatten<T>(array: (T[][] | T[] | T)[], depth = Infinity): T[] {

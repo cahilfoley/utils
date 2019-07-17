@@ -14,8 +14,11 @@
  * @return Two arrays, the first containing all items that satisfied the predicate, the second containing the rest
  *
  * @example
+ * ```typescript
+ *
  * partitionArray([1, 2, 3, 4], x => x % 2)
  * // Returns [[1, 3], [2, 4]]
+ * ```
  *
  */
 export default function partitionArray<T>(

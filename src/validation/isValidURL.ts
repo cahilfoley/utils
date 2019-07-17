@@ -13,7 +13,10 @@ import validURL from '../internal/patterns/validURL'
  * @return Returns true if the input is a valid URL otherwise returns false
  *
  * @example
+ * ```typescript
+ *
  * const valid = isValidURL('http://www.google.com') // returns true
+ * ```
  *
  */
 export default function isValidURL(text: string): boolean {

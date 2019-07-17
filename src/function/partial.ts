@@ -10,10 +10,13 @@
  * @param argsBound The arguments to be partially applied
  *
  * @example
+ * ```typescript
+ *
  * const addNums = (a, b, c) => a + b + c
  * const addNumsTo5 = partial(addNums, 5)
  *
  * addNumsTo5(1, 3) // => 9
+ * ```
  *
  */
 export default function partial(

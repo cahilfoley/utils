@@ -14,7 +14,10 @@ import titleExceptions from '../internal/wordLists/titleExceptions'
  * @return Returns the acronym string
  *
  * @example
+ * ```typescript
+ *
  * const acronym = getAcronym('Empire Strikes Back') // => 'ESB'
+ * ```
  *
  */
 export default function getAcronym(title: string): string {

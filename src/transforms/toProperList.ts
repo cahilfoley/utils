@@ -10,7 +10,10 @@
  * @param items Array of strings
  *
  * @example
+ * ```typescript
+ *
  * const itemsString = toProperList(['apples', 'pears', 'bananas']) // => 'apples, pears and bananas'
+ * ```
  *
  */
 export function toProperList(items: string[]): string

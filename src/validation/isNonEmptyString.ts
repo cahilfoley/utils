@@ -11,7 +11,10 @@
  * @return True if the value is an empty string, false otherwise
  *
  * @example
+ * ```typescript
+ *
  * const valid = isNonEmptyString('hello') // => true
+ * ```
  *
  */
 export default function isNonEmptyString(text: string): boolean {

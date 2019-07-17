@@ -12,6 +12,8 @@
  * @return The executing promise
  *
  * @example
+ * ```typescript
+ *
  * async function run() {
  *   console.log('first log')
  *   await pause(500)
@@ -19,6 +21,7 @@
  *   // Will run 500 milliseconds after the first
  *   console.log('second log')
  * }
+ * ```
  *
  */
 export default function pause(ms: number) {

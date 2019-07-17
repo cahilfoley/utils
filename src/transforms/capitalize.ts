@@ -10,7 +10,10 @@
  * @return Returns the capitalized string
  *
  * @example
+ * ```typescript
+ *
  * const name = capitalize('bob') // => 'Bob'
+ * ```
  *
  */
 export default function capitalize(text: string): string {

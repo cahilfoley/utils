@@ -27,7 +27,10 @@ import capitalize from './capitalize'
  * @return Returns the transformed title case string
  *
  * @example
+ * ```typescript
+ *
  * camelToTitle('iLoveCamels') // => 'I Love Camels'
+ * ```
  *
  */
 export default function camelToTitle(input: string): string {

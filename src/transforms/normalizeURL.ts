@@ -21,7 +21,10 @@ function normalizeProtocolSlashes(url: string) {
  * @return Returns the joined and normalized URL parts as a string
  *
  * @example
+ * ```typescript
+ *
  * const url = normalizeURL('https://cahilfoley.github.io/', '/utils') // => 'https://cahilfoley.github.io/utils'
+ * ```
  *
  */
 export default function noramlizeURL(...urlParts: string[]): string {

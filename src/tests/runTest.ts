@@ -12,7 +12,10 @@
  * @param testVerb The jest `expect` verb to use when testing - defaults to `toBe`
  *
  * @example
+ * ```typescript
+ *
  * runTest([[3, 5], 8], (a, b) => a + b)
+ * ```
  *
  */
 export default function runTest(

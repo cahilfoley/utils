@@ -19,6 +19,8 @@ export interface CancelablePromise<T> extends Promise<T> {
  * @return The cancelable version of the promise
  *
  * @example
+ * ```typescript
+ *
  * const promise = new Promise((res, rej) => {
  *   setTimeout(() => res('I finished!'), 3000)
  * })
@@ -36,6 +38,7 @@ export interface CancelablePromise<T> extends Promise<T> {
  * cancelablePromise
  *   .then(result => console.log('Cancelable', result)) // Never fires, the promise will not resolve after being cancelled
  *   .catch(err => console.log('Cancelable', err)) // Resolves after 3000ms with the value `{ isCanceled: true }`
+ * ```
  *
  */
 export default function makeCancelable<T>(promise: Promise<T>): CancelablePromise<T> {
