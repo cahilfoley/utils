@@ -1,3 +1,3 @@
-export const arrayAccessor: RegExp = /\[(\d+)\]/g
+export const arrayAccessor = /\[(\d+)\]/g
 
 export default arrayAccessor
