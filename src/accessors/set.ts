@@ -8,13 +8,9 @@ import arrayAccessor from '../internal/patterns/arrayAccessor'
  * Creates an array/object as the next property if required
  * @private
  */
-function ensureNextSectionIsValid(
-  path: string[],
-  object: any[] | Record<string, any>,
-  next: string,
-) {
+function ensureNextSectionIsValid([next, nextPlusOne]: string[], object: any) {
   // If the next path item is a number then the item we are about to enter is an array
-  if (!Number.isNaN(+path[0])) {
+  if (!Number.isNaN(+nextPlusOne)) {
     // If the next item isn't already an array then create it
     if (!Array.isArray(object[next])) object[next] = []
   }
@@ -54,7 +50,7 @@ export default function set(
   }
 
   // Still got more steps to go, create the next step if required
-  ensureNextSectionIsValid(path, object, next)
+  ensureNextSectionIsValid([next, path[0]], object)
 
   // Call set recursively with the next section of the path
   set(object[next], path, value)
