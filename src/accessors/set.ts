@@ -36,22 +36,16 @@ export default function set(
   value: any,
 ): void {
   // If the path was a string, split it by periods and array accessors
-  if (typeof path === 'string') {
-    path = path.replace(arrayAccessor, '.$1').split('.')
-  }
+  if (typeof path === 'string') path = path.replace(arrayAccessor, '.$1').split('.')
 
-  // Next key to access
-  let next: string | number = path.shift()
+  const nextKey = path.shift()
 
   // If this is the end of the path then set the value and end
-  if (path.length === 0) {
-    object[next] = value
-    return
-  }
+  if (path.length === 0) return void (object[nextKey] = value)
 
   // Still got more steps to go, create the next step if required
-  ensureNextSectionIsValid([next, path[0]], object)
+  ensureNextSectionIsValid([nextKey, path[0]], object)
 
   // Call set recursively with the next section of the path
-  set(object[next], path, value)
+  set(object[nextKey], path, value)
 }

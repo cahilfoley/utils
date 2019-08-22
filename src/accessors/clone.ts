@@ -20,8 +20,8 @@ export interface CloneOptions {
  * @return Returns the deep cloned value
  *
  */
-export function clone<T>(original: T, options?: CloneOptions): T
-export function clone(original: any, options: CloneOptions = {}): any {
+export default function clone<T>(original: T, options?: CloneOptions): T
+export default function clone(original: any, options: CloneOptions = {}): any {
   let output
 
   // Can't clone functions, only copy if the flag is set
@@ -46,5 +46,3 @@ export function clone(original: any, options: CloneOptions = {}): any {
   // Don't know how to handle this type, just return the original
   return original
 }
-
-export default clone
