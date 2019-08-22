@@ -27,22 +27,21 @@ function normalizeProtocol(urlParts: string[]) {
  * @private
  */
 function normalizeSectionSlashes(urlParts: string[]) {
-  return urlParts.flatMap((section, i) => {
-    if (typeof section !== 'string') {
-      throw new TypeError(
-        `URL must be a string. Received ${section} as argument index ${i} which is type ${typeof section}`,
-      )
-    }
+  return urlParts
+    .filter(section => section !== '')
+    .map((section, i) => {
+      if (typeof section !== 'string') {
+        throw new TypeError(
+          `URL must be a string. Received ${section} as argument index ${i} which is type ${typeof section}`,
+        )
+      }
 
-    // Skip empty sections
-    if (section === '') return []
+      // Removing the starting slashes for each component but the first.
+      if (i > 0) section = section.replace(/^[/]+/, '')
 
-    // Removing the starting slashes for each component but the first.
-    if (i > 0) section = section.replace(/^[/]+/, '')
-
-    // Removing the ending slashes for each component but the last.
-    return section.replace(/[/]+$/, i < urlParts.length - 1 ? '' : '/')
-  })
+      // Removing the ending slashes for each component but the last.
+      return section.replace(/[/]+$/, i < urlParts.length - 1 ? '' : '/')
+    })
 }
 
 /**

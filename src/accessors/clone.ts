@@ -5,7 +5,7 @@
 /**
  * Options to modify the behaviour of the clone function
  */
-export type CloneOptions = {
+export interface CloneOptions {
   /** Flag to specify that functions should be copied by reference rather than converted to empty objects */
   copyFunctions?: boolean
 }

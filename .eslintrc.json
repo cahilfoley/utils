@@ -10,6 +10,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "complexity": [2, 10]
+    "complexity": [2, 10],
+    "@typescript-eslint/no-object-literal-type-assertion": "off"
   }
 }

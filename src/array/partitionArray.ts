@@ -22,10 +22,10 @@
  *
  */
 export default function partitionArray<T>(
-  array: Array<T>,
-  predicate: (value: T, index: number, array: Array<T>) => boolean,
+  array: T[],
+  predicate: (value: T, index: number, array: T[]) => boolean,
   context?: any,
-): [Array<T>, Array<T>] {
+): [T[], T[]] {
   const first = []
   const second = []
   array.forEach((element, index) => {

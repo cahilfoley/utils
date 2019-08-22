@@ -24,7 +24,7 @@
     "url": "https://github.com/cahilfoley/utils.git"
   },
   "scripts": {
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "tsc --noEmit && eslint src/**/*.{js,ts,tsx} --quiet --fix",
     "type-check": "tsc --noEmit",
     "build:amd": "tsc -p config/amd.tsconfig.json",
     "build:cjs:types": "tsc -p config/cjs.tsconfig.json --emitDeclarationOnly",
