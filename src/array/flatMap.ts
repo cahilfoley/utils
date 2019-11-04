@@ -23,10 +23,10 @@ const { push } = Array.prototype
  *
  */
 export default function flatMap<TValue, TNext>(
-  array: Array<TValue>,
-  fn: (value: TValue, index?: number) => Array<TNext>,
-): Array<TNext> {
-  const output: Array<TNext> = []
+  array: TValue[],
+  fn: (value: TValue, index?: number) => TNext[],
+): TNext[] {
+  const output: TNext[] = []
 
   for (let i = 0; i < array.length; i++) {
     const result = fn.call(array, array[i], i)

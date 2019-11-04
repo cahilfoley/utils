@@ -1,5 +1,5 @@
 /** Regular expression to match URL patterns, developed using this handy tool https://regex101.com/r/lQ1nI3/1 */
-const urlRegex: RegExp = new RegExp(
+const urlRegex = new RegExp(
   [
     '^(https?:\\/\\/)', // Protocol
     '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}', // Internet routable host

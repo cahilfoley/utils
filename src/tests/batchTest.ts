@@ -7,7 +7,7 @@ import runTest from './runTest'
 /**
  * Options to customize the behaviour of the batchTest function
  */
-export interface IBatchTestOptions {
+export interface BatchTestOptions {
   /** The jest `expected` verb to use when running the test */
   verb?: string
   /**
@@ -35,7 +35,7 @@ export interface IBatchTestOptions {
 export default function batchTest(
   func: (...args: any[]) => any,
   cases: any[][],
-  { verb, runner }: IBatchTestOptions = {},
+  { verb, runner }: BatchTestOptions = {},
 ): void {
   // Use custom runner if provided
   const actualRunner = runner ? runner : runTest
