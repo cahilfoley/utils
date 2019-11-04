@@ -27,15 +27,11 @@ export default function updateItem(
 
     // If any of the query
     Object.entries(query).forEach(([path, value]) => {
-      if (get(item, path) !== value) {
-        match = false
-      }
+      if (get(item, path) !== value) match = false
     })
 
     // If it met all query criteria then call the update callback
-    if (match) {
-      return updateCallback(item)
-    }
+    if (match) return updateCallback(item)
 
     // Otherwise don't modify the item
     return item

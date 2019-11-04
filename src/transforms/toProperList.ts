@@ -21,36 +21,25 @@ export function toProperList(...items: string[]): string
 export function toProperList(...items: any[]): string {
   const parts: string[] = Array.isArray(items[0]) ? items[0] : items
 
-  let output = ''
-  const length = parts.length
-  // If you have only one item in the array
-  if (length === 1) {
-    output = parts[0]
-  }
-  // If you have only two items in the array
-  else if (length === 2) {
-    output = `${parts[0]} and ${parts[1]}`
-  }
-  // If you have 3 or more items in the array,
-  else if (length >= 3) {
-    // It traverses all elements of the array adds the fixed dots according to the English language
-    parts.forEach((item, index) => {
-      // If it is the penultimate array item
-      if (index === length - 2) {
-        output += `${item} and `
-      }
-      // If it is the last item in the array
-      else if (index === length - 1) {
-        output += `${item}`
-      }
-      // If it is the first or some element before the penultimate one
-      else {
-        output += `${item}, `
-      }
-    })
-  }
+  // If you have 1 - 2 items in the array
+  if (parts.length < 3) return parts.join(' and ')
 
-  return output
+  // There are 3 or more items in the array
+  return (
+    parts
+      // Traverse all elements of the array adds the correct grammar according to the English language
+      .map((item, index) => {
+        // If it is the penultimate array item
+        if (index === parts.length - 2) return `${item} and `
+
+        // If it is the last item in the array
+        if (index === parts.length - 1) return item
+
+        // If it is the first or some element before the penultimate one
+        return `${item}, `
+      })
+      .join('')
+  )
 }
 
 export default toProperList
