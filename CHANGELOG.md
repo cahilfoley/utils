@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/cahilfoley/utils/compare/v2.1.2...v2.2.0) (2019-11-16)
+
+### Build System
+
+- **deps:** bump eslint-utils from 1.3.1 to 1.4.2 ([#75](https://github.com/cahilfoley/utils/issues/75)) ([ea022e3](https://github.com/cahilfoley/utils/commit/ea022e3))
+
+### Features
+
+- **transforms:** add `toCamel` function to transform strings to camel case ([7b3e680](https://github.com/cahilfoley/utils/commit/7b3e680))
+
 ### [2.1.2](https://github.com/cahilfoley/utils/compare/v2.1.0...v2.1.2) (2019-07-17)
 
 ### Build System
