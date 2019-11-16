@@ -4,5 +4,6 @@
   "target": "esnext",
   "exclude": ["**/*.test.ts", "**/internal/**/*.ts"],
   "out": "docs/",
-  "excludeExternals": true
+  "excludeExternals": true,
+  "excludeNotExported": true
 }
