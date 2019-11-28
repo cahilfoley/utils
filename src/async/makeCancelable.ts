@@ -6,7 +6,7 @@
 export const canceledError = { isCanceled: true }
 
 /** A promise that can have it's resolution cancelled */
-export interface CancelablePromise<T> extends Promise<T> {
+export interface CancelableWrappedPromise<T> extends Promise<T> {
   cancel(): void
 }
 
@@ -41,10 +41,10 @@ export interface CancelablePromise<T> extends Promise<T> {
  * ```
  *
  */
-export default function makeCancelable<T>(promise: Promise<T>): CancelablePromise<T> {
+export default function makeCancelable<T>(promise: Promise<T>): CancelableWrappedPromise<T> {
   let hasCanceled = false
 
-  const cancelablePromise: Partial<CancelablePromise<T>> = new Promise((resolve, reject) => {
+  const cancelablePromise: Partial<CancelableWrappedPromise<T>> = new Promise((resolve, reject) => {
     promise.then(
       val => (hasCanceled ? reject(canceledError) : resolve(val)),
       error => (hasCanceled ? reject(canceledError) : reject(error)),
@@ -55,5 +55,5 @@ export default function makeCancelable<T>(promise: Promise<T>): CancelablePromis
     hasCanceled = true
   }
 
-  return cancelablePromise as CancelablePromise<T>
+  return cancelablePromise as CancelableWrappedPromise<T>
 }
