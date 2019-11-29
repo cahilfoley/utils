@@ -31,16 +31,20 @@ describe('CancelablePromise', () => {
     expect(onRejected).toHaveBeenCalledWith('some error')
   })
 
-  it('completes like a regular promise when not canceled', async () => {
-    const cancelable = createPromise()
-    const { onFulfilled, onRejected, onFinally } = createMockFns()
-    await cancelable.then(onFulfilled)
-    await cancelable.catch(onRejected)
-    await cancelable.finally(onFinally)
-    expect(onFulfilled).toHaveBeenCalledWith('hello world')
-    expect(onRejected).not.toHaveBeenCalled()
-    expect(onFinally).toHaveBeenCalled()
-  })
+  if (typeof Promise.prototype.finally === 'function') {
+    it('completes like a regular promise when not canceled', async () => {
+      const cancelable = createPromise()
+      const { onFulfilled, onRejected, onFinally } = createMockFns()
+
+      await cancelable.then(onFulfilled)
+      await cancelable.catch(onRejected)
+      await cancelable.finally(onFinally)
+
+      expect(onFulfilled).toHaveBeenCalledWith('hello world')
+      expect(onRejected).not.toHaveBeenCalled()
+      expect(onFinally).toHaveBeenCalled()
+    })
+  }
 
   it('stringifies to the string [object CancelablePromise]', () => {
     const cancelable = createPromise()
