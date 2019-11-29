@@ -2,12 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [2.3.0](https://github.com/cahilfoley/utils/compare/v2.2.0...v2.3.0) (2019-11-28)
-
-### Features
-
-- **async:** add CancelablePromise utility class ([3f7f1f6](https://github.com/cahilfoley/utils/commit/3f7f1f65d958c6aaf3dde0b25367b36c57044451))
-
 ## [2.2.0](https://github.com/cahilfoley/utils/compare/v2.1.2...v2.2.0) (2019-11-16)
 
 ### Build System
