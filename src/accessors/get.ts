@@ -14,14 +14,18 @@ import arrayAccessor from '../internal/patterns/arrayAccessor'
  * @return The value if it exists, if not then either the default value is returned or undefined
  *
  */
-export default function get(object: object, path: string[] | string, defaultValue?: any): any {
+export default function get<T = any>(object: object, path: string[] | string, defaultValue?: T): T {
   // If the path was a string, split it by periods
   if (typeof path === 'string') path = path.replace(arrayAccessor, '.$1').split('.')
 
   const nextKey = path.shift()
 
   // Up to the last section of the path, get the value now
-  if (path.length === 0) return object[nextKey] || defaultValue
+  if (path.length === 0) {
+    const value = object[nextKey]
+    if (value !== undefined) return value
+    return defaultValue
+  }
 
   // If the next key isn't an object then we can't read it
   if (!object[nextKey] || typeof object[nextKey] !== 'object') return defaultValue

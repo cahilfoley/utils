@@ -16,6 +16,18 @@ describe('Recursive Set (set)', () => {
     },
   }
 
+  const testObscureValues = { zero: 0, one: 1, emptyString: '', undefined: undefined, null: null }
+
+  describe('Accessed values', () => {
+    it('should return any value that is not undefined if it exists on the target object', () => {
+      expect(get(testObscureValues, 'zero')).toBe(0)
+      expect(get(testObscureValues, 'one')).toBe(1)
+      expect(get(testObscureValues, 'emptyString')).toBe('')
+      expect(get(testObscureValues, 'null')).toBeNull()
+      expect(get(testObscureValues, 'undefined')).toBeUndefined()
+    })
+  })
+
   describe('Nested accessor', () => {
     it('should retrieve nested values with a path array of any depth', () => {
       expect(get(testObject, ['value'])).toBe('layer 1')
@@ -41,6 +53,11 @@ describe('Recursive Set (set)', () => {
     it(`should return undefined if the property doesn't exist and a default value is not provided`, () => {
       expect(get(testObject, 'child.baz')).toBeUndefined()
       expect(get(testObject, ['child', 'baz'])).toBeUndefined()
+    })
+
+    it(`should return a default value if the property has the value undefined`, () => {
+      expect(get(testObscureValues, 'null', 'default')).toBe(null)
+      expect(get(testObscureValues, 'undefined', 'default')).toBe('default')
     })
 
     it(`should return a default value if one is provided and a value isn't found`, () => {
